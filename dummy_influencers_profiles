@@ -1,0 +1,4020 @@
+[
+  {
+    "id": "1",
+    "name": "Priya Sharma",
+    "username": "priya_fitness",
+    "platform": "Instagram",
+    "email": "priya@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 150000,
+    "followingCount": 1200,
+    "postCount": 850,
+    "isVerified": true,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/priya_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Stay fit, stay fabulous! 💪✨",
+      "hashtags": ["#fitnessindia", "#healthylifestyle", "#yogaindia"],
+      "imageContent": "Yoga poses and gym workouts"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Uplifting and relatable tone suits Indian fitness brands"
+    },
+    "authenticityScore": {
+      "score": 90,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "yoga", "wellness", "health"],
+    "favoriteProduct": "protein supplements"
+  },
+  {
+    "id": "2",
+    "name": "Rahim Khan",
+    "username": "rahim_stylez",
+    "platform": "TikTok",
+    "email": "rahim@stylezbd.com",
+    "phone": "+880-1234567890",
+    "company": null,
+    "isActive": true,
+    "followerCount": 80000,
+    "followingCount": 1500,
+    "postCount": 400,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rahim_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Slaying the style game! 😎",
+      "hashtags": ["#fashionbd", "#styleinspo", "#trending"],
+      "imageContent": "Street fashion and traditional attire"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Trendy vibe aligns with youth-oriented fashion brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "55% male",
+        "ageGroups": "18-30 years old (72%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["fashion", "streetstyle", "mensfashion", "trending"],
+    "favoriteProduct": "sneakers"
+  },
+  {
+    "id": "3",
+    "name": "Ananya Das",
+    "username": "ananya_beauty",
+    "platform": "Instagram",
+    "email": "ananya@beautyindia.com",
+    "phone": null,
+    "company": "GlowVibe Cosmetics",
+    "isActive": true,
+    "followerCount": 200000,
+    "followingCount": 900,
+    "postCount": 1200,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ananya_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Glow like never before! 💄",
+      "hashtags": ["#makeupindia", "#beautytrends", "#skincare"],
+      "imageContent": "Makeup tutorials and skincare routines"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 90,
+      "alignmentNotes": "Professional tone perfect for beauty brands"
+    },
+    "authenticityScore": {
+      "score": 92,
+      "fakeFollowersEstimate": "4%",
+      "engagementRate": "5.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "85% female",
+        "ageGroups": "18-35 years old (65%)"
+      },
+      "locations": ["India", "Bangladesh", "Canada"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "fashion"],
+    "favoriteProduct": "lipstick"
+  },
+  {
+    "id": "4",
+    "name": "Sohail Ahmed",
+    "username": "sohail_foodie",
+    "platform": "YouTube",
+    "email": "sohail@foodiebd.com",
+    "phone": "+880-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 50000,
+    "followingCount": 2000,
+    "postCount": 300,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/sohail_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Savor the flavors of Bangladesh! 🍲",
+      "hashtags": ["#foodiebd", "#bengalifood", "#recipes"],
+      "imageContent": "Street food vlogs and home recipes"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 78,
+      "alignmentNotes": "Authentic food content suits local brands"
+    },
+    "authenticityScore": {
+      "score": 80,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% male",
+        "ageGroups": "18-40 years old (60%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["food", "cooking", "streetfood", "culinary"],
+    "favoriteProduct": "spices"
+  },
+  {
+    "id": "5",
+    "name": "Riya Gupta",
+    "username": "riya_travelbug",
+    "platform": "Instagram",
+    "email": "riya@travelindia.com",
+    "phone": "+91-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 120000,
+    "followingCount": 1100,
+    "postCount": 600,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/riya_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Exploring the world, one city at a time! 🌍",
+      "hashtags": ["#travelindia", "#wanderlust", "#adventure"],
+      "imageContent": "Scenic landscapes and cultural landmarks"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Adventurous tone fits travel and lifestyle brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% female",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "Australia"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel gear"
+  },
+  {
+    "id": "6",
+    "name": "Faisal Rahman",
+    "username": "faisal_tech",
+    "platform": "YouTube",
+    "email": "faisal@techbd.com",
+    "phone": null,
+    "company": "TechBit",
+    "isActive": false,
+    "followerCount": 30000,
+    "followingCount": 2500,
+    "postCount": 200,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/faisal_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Unboxing the latest gadgets! 📱",
+      "hashtags": ["#techbd", "#gadgets", "#reviews"],
+      "imageContent": "Tech unboxings and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 60,
+      "alignmentNotes": "Tech focus is niche, less brand versatility"
+    },
+    "authenticityScore": {
+      "score": 65,
+      "fakeFollowersEstimate": "15%",
+      "engagementRate": "2.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "80% male",
+        "ageGroups": "18-30 years old (60%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "smartphones"
+  },
+  {
+    "id": "7",
+    "name": "Meera Patel",
+    "username": "meera_fashionista",
+    "platform": "Instagram",
+    "email": "meera@fashionindia.com",
+    "phone": "+91-9123456789",
+    "company": null,
+    "isActive": true,
+    "followerCount": 180000,
+    "followingCount": 1000,
+    "postCount": 950,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/meera_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that speaks volumes! 👗",
+      "hashtags": ["#fashionindia", "#stylegoals", "#trendy"],
+      "imageContent": "Designer outfits and fashion hauls"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 87,
+      "alignmentNotes": "Chic and trendy tone aligns with fashion brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fashion", "style", "beauty", "trending"],
+    "favoriteProduct": "designer clothing"
+  },
+  {
+    "id": "8",
+    "name": "Tania Islam",
+    "username": "tania_foodvibes",
+    "platform": "TikTok",
+    "email": "tania@foodvibesbd.com",
+    "phone": "+880-9123456789",
+    "company": null,
+    "isActive": true,
+    "followerCount": 95000,
+    "followingCount": 1300,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/tania_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Cooking up a storm! 🍴",
+      "hashtags": ["#foodiebd", "#recipes", "#homecooking"],
+      "imageContent": "Home-cooked meals and food prep"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Relatable tone suits food and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "65% female",
+        "ageGroups": "18-40 years old (62%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["food", "cooking", "recipes", "culinary"],
+    "favoriteProduct": "kitchen appliances"
+  },
+  {
+    "id": "9",
+    "name": "Arjun Singh",
+    "username": "arjun_adventures",
+    "platform": "YouTube",
+    "email": "arjun@adventureindia.com",
+    "phone": "+91-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 110000,
+    "followingCount": 1400,
+    "postCount": 450,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arjun_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Chasing new horizons! 🏍️",
+      "hashtags": ["#travelindia", "#adventure", "#biketours"],
+      "imageContent": "Travel vlogs and bike tours"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Adventurous tone fits outdoor and travel brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% male",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["India", "Bangladesh", "Australia"]
+    },
+    "tags": ["travel", "adventure", "biking", "outdoors"],
+    "favoriteProduct": "biking gear"
+  },
+  {
+    "id": "10",
+    "name": "Fatima Begum",
+    "username": "fatima_crafts",
+    "platform": "Instagram",
+    "email": "fatima@craftsbd.com",
+    "phone": null,
+    "company": null,
+    "isActive": true,
+    "followerCount": 60000,
+    "followingCount": 1800,
+    "postCount": 350,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/fatima_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Creating beauty with my hands! ✂️",
+      "hashtags": ["#craftsbd", "#diy", "#handmade"],
+      "imageContent": "DIY crafts and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 75,
+      "alignmentNotes": "Creative tone suits craft and DIY brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.0%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "80% female",
+        "ageGroups": "18-40 years old (60%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["crafts", "diy", "handmade", "creativity"],
+    "favoriteProduct": "craft supplies"
+  },
+  {
+    "id": "11",
+    "name": "Vikram Rao",
+    "username": "vikram_techguru",
+    "platform": "YouTube",
+    "email": "vikram@techindia.com",
+    "phone": "+91-8877665544",
+    "company": "TechTrendz",
+    "isActive": false,
+    "followerCount": 25000,
+    "followingCount": 3000,
+    "postCount": 150,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vikram_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 🖥️",
+      "hashtags": ["#techindia", "#gadgets", "#tutorials"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 55,
+      "alignmentNotes": "Niche tech content limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 60,
+      "fakeFollowersEstimate": "18%",
+      "engagementRate": "2.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "85% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "laptops"
+  },
+  {
+    "id": "12",
+    "name": "Nusrat Jahan",
+    "username": "nusrat_beautyqueen",
+    "platform": "Instagram",
+    "email": "nusrat@beautybd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 170000,
+    "followingCount": 950,
+    "postCount": 1000,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/nusrat_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Unleash your inner glow! 💖",
+      "hashtags": ["#beautybd", "#makeuptutorials", "#skincare"],
+      "imageContent": "Makeup looks and skincare tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 89,
+      "alignmentNotes": "Glamorous tone ideal for beauty brands"
+    },
+    "authenticityScore": {
+      "score": 91,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "5.0%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "82% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "fashion"],
+    "favoriteProduct": "foundation"
+  },
+  {
+    "id": "13",
+    "name": "Amit Kumar",
+    "username": "amit_fitnesspro",
+    "platform": "Instagram",
+    "email": "amit@fitnessindia.com",
+    "phone": "+91-9234567890",
+    "company": null,
+    "isActive": true,
+    "followerCount": 140000,
+    "followingCount": 1100,
+    "postCount": 700,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/amit_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Push your limits! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 86,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 88,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "65% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein bars"
+  },
+  {
+    "id": "14",
+    "name": "Sadia Rahman",
+    "username": "sadia_lifestyle",
+    "platform": "TikTok",
+    "email": "sadia@lifestylebd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 85000,
+    "followingCount": 1400,
+    "postCount": 450,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/sadia_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Live your best life! 🌟",
+      "hashtags": ["#lifestylebd", "#dailyvibes", "#trending"],
+      "imageContent": "Daily lifestyle and fashion"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Relatable tone suits lifestyle brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["lifestyle", "fashion", "dailyvibes", "trending"],
+    "favoriteProduct": "accessories"
+  },
+  {
+    "id": "15",
+    "name": "Rohan Desai",
+    "username": "rohan_photoguru",
+    "platform": "Instagram",
+    "email": "rohan@photoindia.com",
+    "phone": null,
+    "company": null,
+    "isActive": true,
+    "followerCount": 90000,
+    "followingCount": 1200,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rohan_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Capturing the moment! 📸",
+      "hashtags": ["#photoindia", "#photography", "#art"],
+      "imageContent": "Landscape and portrait photography"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 79,
+      "alignmentNotes": "Artistic tone suits photography brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% male",
+        "ageGroups": "18-35 years old (62%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["photography", "art", "landscapes", "portraits"],
+    "favoriteProduct": "camera gear"
+  },
+  {
+    "id": "16",
+    "name": "Zara Hossain",
+    "username": "zara_makeup",
+    "platform": "Instagram",
+    "email": "zara@makeupbd.com",
+    "phone": "+880-9123456789",
+    "company": "BeautyBliss",
+    "isActive": true,
+    "followerCount": 160000,
+    "followingCount": 950,
+    "postCount": 900,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/zara_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Transform with every brushstroke! 💄",
+      "hashtags": ["#makeupbd", "#beauty", "#glam"],
+      "imageContent": "Makeup tutorials and product reviews"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Glamorous tone perfect for beauty brands"
+    },
+    "authenticityScore": {
+      "score": 90,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "glam"],
+    "favoriteProduct": "eyeshadow palettes"
+  },
+  {
+    "id": "17",
+    "name": "Karan Malhotra",
+    "username": "karan_fitness",
+    "platform": "Instagram",
+    "email": "karan@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 130000,
+    "followingCount": 1100,
+    "postCount": 650,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/karan_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Build your strength! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness challenges"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein shakes"
+  },
+  {
+    "id": "18",
+    "name": "Laila Akter",
+    "username": "laila_fashion",
+    "platform": "TikTok",
+    "email": "laila@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 70000,
+    "followingCount": 1400,
+    "postCount": 400,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/laila_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Fashion that pops! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "19",
+    "name": "Ravi Sharma",
+    "username": "ravi_tech",
+    "platform": "YouTube",
+    "email": "ravi@techindia.com",
+    "phone": null,
+    "company": "TechVibe",
+    "isActive": false,
+    "followerCount": 20000,
+    "followingCount": 2800,
+    "postCount": 120,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ravi_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech updates daily! 📱",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and unboxings"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 58,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 62,
+      "fakeFollowersEstimate": "17%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "82% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "smartwatches"
+  },
+  {
+    "id": "20",
+    "name": "Saba Khan",
+    "username": "saba_travel",
+    "platform": "Instagram",
+    "email": "saba@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 100000,
+    "followingCount": 1300,
+    "postCount": 550,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/saba_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wanderlust vibes! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "backpacks"
+  },
+  {
+    "id": "21",
+    "name": "Aditi Roy",
+    "username": "aditi_beauty",
+    "platform": "Instagram",
+    "email": "aditi@beautyindia.com",
+    "phone": "+91-9123456789",
+    "company": "GlamAura",
+    "isActive": true,
+    "followerCount": 190000,
+    "followingCount": 900,
+    "postCount": 1100,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/aditi_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Shine bright with every look! 💅",
+      "hashtags": ["#beautyindia", "#makeup", "#skincare"],
+      "imageContent": "Makeup tutorials and product demos"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 90,
+      "alignmentNotes": "Glamorous tone ideal for beauty brands"
+    },
+    "authenticityScore": {
+      "score": 92,
+      "fakeFollowersEstimate": "4%",
+      "engagementRate": "5.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "85% female",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "glam"],
+    "favoriteProduct": "mascara"
+  },
+  {
+    "id": "22",
+    "name": "Imran Hossain",
+    "username": "imran_foodie",
+    "platform": "YouTube",
+    "email": "imran@foodiebd.com",
+    "phone": "+880-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 55000,
+    "followingCount": 1900,
+    "postCount": 320,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/imran_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Taste the magic! 🍛",
+      "hashtags": ["#foodiebd", "#bengalifood", "#recipes"],
+      "imageContent": "Food vlogs and cooking tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 79,
+      "alignmentNotes": "Authentic tone suits food brands"
+    },
+    "authenticityScore": {
+      "score": 81,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% male",
+        "ageGroups": "18-40 years old (62%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["food", "cooking", "streetfood", "culinary"],
+    "favoriteProduct": "cookware"
+  },
+  {
+    "id": "23",
+    "name": "Sneha Jain",
+    "username": "sneha_fashion",
+    "platform": "Instagram",
+    "email": "sneha@fashionindia.com",
+    "phone": "+91-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 165000,
+    "followingCount": 1000,
+    "postCount": 900,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/sneha_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style with a smile! 😊",
+      "hashtags": ["#fashionindia", "#styleinspo", "#trendy"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Trendy tone aligns with fashion brands"
+    },
+    "authenticityScore": {
+      "score": 90,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "5.0%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "78% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "jewelry"
+  },
+  {
+    "id": "24",
+    "name": "Asif Ali",
+    "username": "asif_tech",
+    "platform": "YouTube",
+    "email": "asif@techbd.com",
+    "phone": null,
+    "company": "TechNova",
+    "isActive": false,
+    "followerCount": 22000,
+    "followingCount": 2700,
+    "postCount": 130,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/asif_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech made easy! 🖥️",
+      "hashtags": ["#techbd", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 57,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 61,
+      "fakeFollowersEstimate": "16%",
+      "engagementRate": "2.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "headphones"
+  },
+  {
+    "id": "25",
+    "name": "Mina Rahman",
+    "username": "mina_travel",
+    "platform": "Instagram",
+    "email": "mina@travelbd.com",
+    "phone": "+880-9123456789",
+    "company": null,
+    "isActive": true,
+    "followerCount": 95000,
+    "followingCount": 1200,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/mina_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Adventure awaits! 🌍",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel vlogs and scenic views"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel accessories"
+  },
+  {
+    "id": "26",
+    "name": "Neha Verma",
+    "username": "neha_beauty",
+    "platform": "Instagram",
+    "email": "neha@beautyindia.com",
+    "phone": "+91-9988776655",
+    "company": "GlowTrend",
+    "isActive": true,
+    "followerCount": 175000,
+    "followingCount": 950,
+    "postCount": 1000,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/neha_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Glow up with me! 💖",
+      "hashtags": ["#beautyindia", "#makeup", "#skincare"],
+      "imageContent": "Makeup looks and skincare routines"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 89,
+      "alignmentNotes": "Glamorous tone ideal for beauty brands"
+    },
+    "authenticityScore": {
+      "score": 91,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "84% female",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["India", "Bangladesh", "Canada"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "glam"],
+    "favoriteProduct": "lip gloss"
+  },
+  {
+    "id": "27",
+    "name": "Rashed Khan",
+    "username": "rashed_foodie",
+    "platform": "YouTube",
+    "email": "rashed@foodiebd.com",
+    "phone": "+880-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 60000,
+    "followingCount": 1800,
+    "postCount": 350,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/rashed_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Food is love! 🍲",
+      "hashtags": ["#foodiebd", "#bengalifood", "#recipes"],
+      "imageContent": "Food vlogs and cooking tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Authentic tone suits food brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "62% male",
+        "ageGroups": "18-40 years old (61%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["food", "cooking", "streetfood", "culinary"],
+    "favoriteProduct": "spices"
+  },
+  {
+    "id": "28",
+    "name": "Pooja Sharma",
+    "username": "pooja_fashion",
+    "platform": "Instagram",
+    "email": "pooja@fashionindia.com",
+    "phone": "+91-9123456789",
+    "company": null,
+    "isActive": true,
+    "followerCount": 160000,
+    "followingCount": 1000,
+    "postCount": 900,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/pooja_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that inspires! 👗",
+      "hashtags": ["#fashionindia", "#styleinspo", "#trendy"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 87,
+      "alignmentNotes": "Trendy tone aligns with fashion brands"
+    },
+    "authenticityScore": {
+      "score": 90,
+      "fakeFollowersEstimate": "5%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "77% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "handbags"
+  },
+  {
+    "id": "29",
+    "name": "Salman Hossain",
+    "username": "salman_tech",
+    "platform": "YouTube",
+    "email": "salman@techbd.com",
+    "phone": null,
+    "company": "TechTrend",
+    "isActive": false,
+    "followerCount": 23000,
+    "followingCount": 2600,
+    "postCount": 140,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/salman_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech updates daily! 🖥️",
+      "hashtags": ["#techbd", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 56,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 60,
+      "fakeFollowersEstimate": "17%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "84% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "tablets"
+  },
+  {
+    "id": "30",
+    "name": "Ayesha Siddiqui",
+    "username": "ayesha_travel",
+    "platform": "Instagram",
+    "email": "ayesha@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 98000,
+    "followingCount": 1200,
+    "postCount": 520,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ayesha_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Explore the world! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "69% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "luggage"
+  },
+  {
+    "id": "31",
+    "name": "Sanjay Patel",
+    "username": "sanjay_fitness",
+    "platform": "Instagram",
+    "email": "sanjay@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 145000,
+    "followingCount": 1100,
+    "postCount": 720,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/sanjay_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Train hard, win big! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 86,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 88,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein powder"
+  },
+  {
+    "id": "32",
+    "name": "Farhana Begum",
+    "username": "farhana_fashion",
+    "platform": "TikTok",
+    "email": "farhana@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 72000,
+    "followingCount": 1400,
+    "postCount": 410,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/farhana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Fashion that slays! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "76% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "scarves"
+  },
+  {
+    "id": "33",
+    "name": "Vivek Sharma",
+    "username": "vivek_tech",
+    "platform": "YouTube",
+    "email": "vivek@techindia.com",
+    "phone": null,
+    "company": "TechVibe",
+    "isActive": false,
+    "followerCount": 21000,
+    "followingCount": 2700,
+    "postCount": 125,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vivek_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 🖥️",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 58,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 61,
+      "fakeFollowersEstimate": "16%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "smartphones"
+  },
+  {
+    "id": "34",
+    "name": "Tasnim Akter",
+    "username": "tasnim_travel",
+    "platform": "Instagram",
+    "email": "tasnim@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 92000,
+    "followingCount": 1200,
+    "postCount": 510,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/tasnim_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wander with me! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel gear"
+  },
+  {
+    "id": "35",
+    "name": "Anil Gupta",
+    "username": "anil_fitness",
+    "platform": "Instagram",
+    "email": "anil@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 140000,
+    "followingCount": 1100,
+    "postCount": 700,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/anil_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Sweat it out! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 86,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 88,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "67% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein bars"
+  },
+  {
+    "id": "36",
+    "name": "Ruma Begum",
+    "username": "ruma_fashion",
+    "platform": "TikTok",
+    "email": "ruma@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 71000,
+    "followingCount": 1400,
+    "postCount": 400,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/ruma_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that shines! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "37",
+    "name": "Rohit Sharma",
+    "username": "rohit_tech",
+    "platform": "YouTube",
+    "email": "rohit@techindia.com",
+    "phone": null,
+    "company": "TechTrend",
+    "isActive": false,
+    "followerCount": 20000,
+    "followingCount": 2700,
+    "postCount": 120,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rohit_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 🖥️",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 58,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 61,
+      "fakeFollowersEstimate": "16%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "laptops"
+  },
+  {
+    "id": "38",
+    "name": "Shabnam Akter",
+    "username": "shabnam_travel",
+    "platform": "Instagram",
+    "email": "shabnam@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 91000,
+    "followingCount": 1200,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/shabnam_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Adventure awaits! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel accessories"
+  },
+  {
+    "id": "39",
+    "name": "Vikas Patel",
+    "username": "vikas_fitness",
+    "platform": "Instagram",
+    "email": "vikas@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 135000,
+    "followingCount": 1100,
+    "postCount": 680,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vikas_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Push your limits! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein shakes"
+  },
+  {
+    "id": "40",
+    "name": "Rina Begum",
+    "username": "rina_fashion",
+    "platform": "TikTok",
+    "email": "rina@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 70000,
+    "followingCount": 1400,
+    "postCount": 400,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/rina_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that pops! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "41",
+    "name": "Arun Sharma",
+    "username": "arun_tech",
+    "platform": "YouTube",
+    "email": "arun@techindia.com",
+    "phone": null,
+    "company": "TechTrend",
+    "isActive": false,
+    "followerCount": 21000,
+    "followingCount": 2700,
+    "postCount": 120,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arun_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 🖥️",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 58,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 61,
+      "fakeFollowersEstimate": "16%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "smartphones"
+  },
+  {
+    "id": "42",
+    "name": "Nadia Islam",
+    "username": "nadia_travel",
+    "platform": "Instagram",
+    "email": "nadia@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 90000,
+    "followingCount": 1200,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/nadia_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wander with me! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel gear"
+  },
+  {
+    "id": "43",
+    "name": "Rakesh Kumar",
+    "username": "rakesh_fitness",
+    "platform": "Instagram",
+    "email": "rakesh@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 130000,
+    "followingCount": 1100,
+    "postCount": 650,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rakesh_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Train hard, win big! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein shakes"
+  },
+  {
+    "id": "44",
+    "name": "Shaila Begum",
+    "username": "shaila_fashion",
+    "platform": "TikTok",
+    "email": "shaila@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 69000,
+    "followingCount": 1400,
+    "postCount": 390,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/shaila_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that shines! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "45",
+    "name": "Suresh Sharma",
+    "username": "suresh_tech",
+    "platform": "YouTube",
+    "email": "suresh@techindia.com",
+    "phone": null,
+    "company": "TechTrend",
+    "isActive": false,
+    "followerCount": 20000,
+    "followingCount": 2700,
+    "postCount": 120,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/suresh_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 🖥️",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 58,
+      "alignmentNotes": "Niche tech focus limits brand appeal"
+    },
+    "authenticityScore": {
+      "score": 61,
+      "fakeFollowersEstimate": "16%",
+      "engagementRate": "2.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "83% male",
+        "ageGroups": "18-30 years old (55%)"
+      },
+      "locations": ["India", "Bangladesh", "United Kingdom"]
+    },
+    "tags": ["tech", "gadgets", "reviews"],
+    "favoriteProduct": "smartphones"
+  },
+  {
+    "id": "46",
+    "name": "Tania Begum",
+    "username": "tania_travel",
+    "platform": "Instagram",
+    "email": "tania@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 89000,
+    "followingCount": 1200,
+    "postCount": 490,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/tania_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wander with me! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel gear"
+  },
+  {
+    "id": "47",
+    "name": "Ravi Kumar",
+    "username": "ravi_fitness",
+    "platform": "Instagram",
+    "email": "ravi@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 125000,
+    "followingCount": 1100,
+    "postCount": 640,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ravi_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Train hard, win big! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein shakes"
+  },
+  {
+    "id": "48",
+    "name": "Sultana Begum",
+    "username": "sultana_fashion",
+    "platform": "TikTok",
+    "email": "sultana@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 68000,
+    "followingCount": 1400,
+    "postCount": 380,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/sultana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that shines! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "46",
+    "name": "Tania Begum",
+    "username": "tania_travel",
+    "platform": "Instagram",
+    "email": "tania@travelbd.com",
+    "phone": "+880-9988776655",
+    "company": null,
+    "isActive": true,
+    "followerCount": 89000,
+    "followingCount": 1200,
+    "postCount": 490,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/tania_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wander with me! 🌏",
+      "hashtags": ["#travelbd", "#wanderlust", "#adventure"],
+      "imageContent": "Travel destinations and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["travel", "adventure", "lifestyle", "culture"],
+    "favoriteProduct": "travel gear"
+  },
+  {
+    "id": "47",
+    "name": "Ravi Kumar",
+    "username": "ravi_fitness",
+    "platform": "Instagram",
+    "email": "ravi@fitnessindia.com",
+    "phone": "+91-9876543210",
+    "company": null,
+    "isActive": true,
+    "followerCount": 125000,
+    "followingCount": 1100,
+    "postCount": 640,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ravi_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Train hard, win big! 💪",
+      "hashtags": ["#fitnessindia", "#gymlife", "#health"],
+      "imageContent": "Gym workouts and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone aligns with fitness brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Bangladesh", "United States"]
+    },
+    "tags": ["fitness", "gym", "health", "wellness"],
+    "favoriteProduct": "protein shakes"
+  },
+  {
+    "id": "48",
+    "name": "Sultana Begum",
+    "username": "sultana_fashion",
+    "platform": "TikTok",
+    "email": "sultana@fashionbd.com",
+    "phone": "+880-8765432109",
+    "company": null,
+    "isActive": true,
+    "followerCount": 68000,
+    "followingCount": 1400,
+    "postCount": 380,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/sultana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style that shines! 👗",
+      "hashtags": ["#fashionbd", "#style", "#trending"],
+      "imageContent": "Fashion hauls and styling tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-30 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "dresses"
+  },
+  {
+    "id": "49",
+    "name": "Ayesha Rahman",
+    "username": "ayesha_foodie",
+    "platform": "Instagram",
+    "email": "ayesha@foodiebangla.com",
+    "phone": "+880-9123456789",
+    "company": null,
+    "isActive": true,
+    "followerCount": 95000,
+    "followingCount": 1300,
+    "postCount": 510,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ayesha_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Taste the world! 🍲",
+      "hashtags": ["#foodiebangla", "#foodlover", "#recipes"],
+      "imageContent": "Food recipes and restaurant reviews"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Vibrant tone suits food and beverage brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% female",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["food", "cooking", "lifestyle", "recipes"],
+    "favoriteProduct": "kitchen appliances"
+  },
+  {
+    "id": "50",
+    "name": "Arjun Singh",
+    "username": "arjun_tech",
+    "platform": "YouTube",
+    "email": "arjun@techindia.com",
+    "phone": "+91-8765432198",
+    "company": null,
+    "isActive": true,
+    "followerCount": 150000,
+    "followingCount": 900,
+    "postCount": 230,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arjun_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech made simple! 📱",
+      "hashtags": ["#techindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone aligns with tech brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "72% male",
+        "ageGroups": "18-40 years old (73%)"
+      },
+      "locations": ["India", "United States", "Canada"]
+    },
+    "tags": ["tech", "gadgets", "reviews", "tutorials"],
+    "favoriteProduct": "smartphones"
+  },
+  {
+    "id": "51",
+    "name": "Fatima Khan",
+    "username": "fatima_beauty",
+    "platform": "TikTok",
+    "email": "fatima@beautybangla.com",
+    "phone": "+880-9876543212",
+    "company": null,
+    "isActive": true,
+    "followerCount": 72000,
+    "followingCount": 1600,
+    "postCount": 410,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/fatima_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Glow up with me! 💄",
+      "hashtags": ["#beautybangla", "#makeup", "#skincare"],
+      "imageContent": "Makeup tutorials and skincare routines"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "80% female",
+        "ageGroups": "18-30 years old (70%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "makeup palettes"
+  },
+  {
+    "id": "52",
+    "name": "Vikram Patel",
+    "username": "vikram_travelvibes",
+    "platform": "Instagram",
+    "email": "vikram@travelvibes.com",
+    "phone": "+91-9988776654",
+    "company": null,
+    "isActive": true,
+    "followerCount": 110000,
+    "followingCount": 1250,
+    "postCount": 570,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vikram_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Chasing horizons! 🌅",
+      "hashtags": ["#travelvibes", "#adventure", "#explore"],
+      "imageContent": "Travel photography and itineraries"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and adventure brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "55% male",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["India", "Australia", "United Kingdom"]
+    },
+    "tags": ["travel", "adventure", "photography", "explore"],
+    "favoriteProduct": "camera gear"
+  },
+  {
+    "id": "53",
+    "name": "Nadia Islam",
+    "username": "nadia_crafts",
+    "platform": "Instagram",
+    "email": "nadia@craftsbd.com",
+    "phone": "+880-8765432197",
+    "company": null,
+    "isActive": true,
+    "followerCount": 65000,
+    "followingCount": 1000,
+    "postCount": 360,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/nadia_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Create with love! ✂️",
+      "hashtags": ["#craftsbd", "#diy", "#handmade"],
+      "imageContent": "DIY crafts and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Creative tone suits craft and hobby brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "78% female",
+        "ageGroups": "25-45 years old (62%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["crafts", "diy", "handmade", "creative"],
+    "favoriteProduct": "craft supplies"
+  },
+  {
+    "id": "54",
+    "name": "Rahul Sharma",
+    "username": "rahul_gamer",
+    "platform": "YouTube",
+    "email": "rahul@gamerindia.com",
+    "phone": "+91-9123456788",
+    "company": null,
+    "isActive": true,
+    "followerCount": 180000,
+    "followingCount": 800,
+    "postCount": 290,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rahul_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Level up your game! 🎮",
+      "hashtags": ["#gamerindia", "#gaming", "#esports"],
+      "imageContent": "Gaming walkthroughs and live streams"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 87,
+      "alignmentNotes": "Energetic tone suits gaming and tech brands"
+    },
+    "authenticityScore": {
+      "score": 88,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "80% male",
+        "ageGroups": "16-30 years old (75%)"
+      },
+      "locations": ["India", "United States", "Brazil"]
+    },
+    "tags": ["gaming", "esports", "tech", "entertainment"],
+    "favoriteProduct": "gaming peripherals"
+  },
+  {
+    "id": "55",
+    "name": "Priya Das",
+    "username": "priya_wellness",
+    "platform": "Instagram",
+    "email": "priya@wellnessbd.com",
+    "phone": "+880-9988776644",
+    "company": null,
+    "isActive": true,
+    "followerCount": 82000,
+    "followingCount": 1150,
+    "postCount": 460,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/priya_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Find your inner peace! 🧘",
+      "hashtags": ["#wellnessbd", "#yoga", "#mindfulness"],
+      "imageContent": "Yoga routines and wellness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Calming tone suits wellness and health brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "72% female",
+        "ageGroups": "25-40 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["wellness", "yoga", "health", "mindfulness"],
+    "favoriteProduct": "yoga mats"
+  },
+  {
+    "id": "56",
+    "name": "Sanjay Gupta",
+    "username": "sanjay_photog",
+    "platform": "Instagram",
+    "email": "sanjay@photogindia.com",
+    "phone": "+91-9876543201",
+    "company": null,
+    "isActive": true,
+    "followerCount": 105000,
+    "followingCount": 1400,
+    "postCount": 520,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/sanjay_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Capture the moment! 📸",
+      "hashtags": ["#photogindia", "#photography", "#art"],
+      "imageContent": "Photography tips and portfolios"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Artistic tone suits photography and camera brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "United Kingdom", "Canada"]
+    },
+    "tags": ["photography", "art", "creative", "visuals"],
+    "favoriteProduct": "camera lenses"
+  },
+  {
+    "id": "57",
+    "name": "Laila Akter",
+    "username": "laila_bakes",
+    "platform": "TikTok",
+    "email": "laila@bakesbd.com",
+    "phone": "+880-9123456790",
+    "company": null,
+    "isActive": true,
+    "followerCount": 70000,
+    "followingCount": 1500,
+    "postCount": 390,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/laila_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Bake with love! 🍰",
+      "hashtags": ["#bakesbd", "#baking", "#desserts"],
+      "imageContent": "Baking tutorials and dessert recipes"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Sweet and engaging tone suits baking brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "Australia"]
+    },
+    "tags": ["baking", "desserts", "cooking", "lifestyle"],
+    "favoriteProduct": "baking tools"
+  },
+  {
+    "id": "58",
+    "name": "Kiran Rao",
+    "username": "kiran_fashionista",
+    "platform": "Instagram",
+    "email": "kiran@fashionindia.com",
+    "phone": "+91-8765432107",
+    "company": null,
+    "isActive": true,
+    "followerCount": 90000,
+    "followingCount": 1200,
+    "postCount": 480,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/kiran_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Slay the style game! 👠",
+      "hashtags": ["#fashionindia", "#style", "#ootd"],
+      "imageContent": "Fashion hauls and outfit ideas"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Trendy tone suits fashion and lifestyle brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "78% female",
+        "ageGroups": "18-30 years old (67%)"
+      },
+      "locations": ["India", "United Arab Emirates", "United States"]
+    },
+    "tags": ["fashion", "style", "ootd", "lifestyle"],
+    "favoriteProduct": "accessories"
+  },
+  {
+    "id": "59",
+    "name": "Mahmud Hasan",
+    "username": "mahmud_travelbug",
+    "platform": "Instagram",
+    "email": "mahmud@travelbugbd.com",
+    "phone": "+880-9988776633",
+    "company": null,
+    "isActive": true,
+    "followerCount": 87000,
+    "followingCount": 1100,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/mahmud_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Explore the world! 🌍",
+      "hashtags": ["#travelbugbd", "#wanderlust", "#travel"],
+      "imageContent": "Travel vlogs and destination guides"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Adventurous tone suits travel brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "65% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["Bangladesh", "India", "Thailand"]
+    },
+    "tags": ["travel", "wanderlust", "adventure", "culture"],
+    "favoriteProduct": "travel backpacks"
+  },
+  {
+    "id": "60",
+    "name": "Anita Roy",
+    "username": "anita_fitnesspro",
+    "platform": "YouTube",
+    "email": "anita@fitnessproindia.com",
+    "phone": "+91-9123456791",
+    "company": null,
+    "isActive": true,
+    "followerCount": 135000,
+    "followingCount": 950,
+    "postCount": 270,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/anita_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Get fit, stay strong! 🏋️",
+      "hashtags": ["#fitnessproindia", "#workout", "#health"],
+      "imageContent": "Workout routines and fitness challenges"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 86,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "5.0%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% female",
+        "ageGroups": "18-35 years old (72%)"
+      },
+      "locations": ["India", "United States", "Canada"]
+    },
+    "tags": ["fitness", "health", "workout", "wellness"],
+    "favoriteProduct": "fitness trackers"
+  },
+  {
+    "id": "61",
+    "name": "Salma Begum",
+    "username": "salma_beautyqueen",
+    "platform": "TikTok",
+    "email": "salma@beautyqueenbd.com",
+    "phone": "+880-9876543202",
+    "company": null,
+    "isActive": true,
+    "followerCount": 75000,
+    "followingCount": 1700,
+    "postCount": 420,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/salma_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Shine bright! ✨",
+      "hashtags": ["#beautyqueenbd", "#makeup", "#glam"],
+      "imageContent": "Makeup transformations and beauty tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty and fashion brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "82% female",
+        "ageGroups": "18-30 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["beauty", "makeup", "glam", "fashion"],
+    "favoriteProduct": "lipsticks"
+  },
+  {
+    "id": "62",
+    "name": "Rohan Mehra",
+    "username": "rohan_adventures",
+    "platform": "Instagram",
+    "email": "rohan@adventuresindia.com",
+    "phone": "+91-9988776622",
+    "company": null,
+    "isActive": true,
+    "followerCount": 115000,
+    "followingCount": 1300,
+    "postCount": 550,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rohan_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Adventure awaits! 🏞️",
+      "hashtags": ["#adventuresindia", "#travel", "#explore"],
+      "imageContent": "Adventure travel and outdoor activities"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Thrilling tone suits adventure and travel brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "58% male",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["India", "Australia", "New Zealand"]
+    },
+    "tags": ["adventure", "travel", "outdoors", "explore"],
+    "favoriteProduct": "hiking gear"
+  },
+  {
+    "id": "63",
+    "name": "Shabnam Akter",
+    "username": "shabnam_diy",
+    "platform": "Instagram",
+    "email": "shabnam@diybd.com",
+    "phone": "+880-8765432186",
+    "company": null,
+    "isActive": true,
+    "followerCount": 67000,
+    "followingCount": 1050,
+    "postCount": 370,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/shabnam_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Craft your dreams! 🎨",
+      "hashtags": ["#diybd", "#crafts", "#handmade"],
+      "imageContent": "DIY projects and craft tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Creative tone suits craft and hobby brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "77% female",
+        "ageGroups": "25-45 years old (63%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["diy", "crafts", "handmade", "creative"],
+    "favoriteProduct": "art supplies"
+  },
+  {
+    "id": "64",
+    "name": "Amit Desai",
+    "username": "amit_techguru",
+    "platform": "YouTube",
+    "email": "amit@techguruindia.com",
+    "phone": "+91-9123456780",
+    "company": null,
+    "isActive": true,
+    "followerCount": 160000,
+    "followingCount": 850,
+    "postCount": 250,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/amit_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech simplified! 💻",
+      "hashtags": ["#techguruindia", "#gadgets", "#tech"],
+      "imageContent": "Tech unboxing and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone suits tech and gadget brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "75% male",
+        "ageGroups": "18-40 years old (74%)"
+      },
+      "locations": ["India", "United States", "Singapore"]
+    },
+    "tags": ["tech", "gadgets", "tutorials", "reviews"],
+    "favoriteProduct": "laptops"
+  },
+  {
+    "id": "65",
+    "name": "Rina Khatun",
+    "username": "rina_foodlover",
+    "platform": "TikTok",
+    "email": "rina@foodloverbd.com",
+    "phone": "+880-9876543213",
+    "company": null,
+    "isActive": true,
+    "followerCount": 69000,
+    "followingCount": 1600,
+    "postCount": 400,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/rina_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Cook with passion! 🍴",
+      "hashtags": ["#foodloverbd", "#recipes", "#cooking"],
+      "imageContent": "Quick recipes and cooking hacks"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Engaging tone suits food and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["food", "cooking", "recipes", "lifestyle"],
+    "favoriteProduct": "cookware"
+  },
+  {
+    "id": "66",
+    "name": "Vivek Nair",
+    "username": "vivek_fitnessguru",
+    "platform": "Instagram",
+    "email": "vivek@fitnessguruindia.com",
+    "phone": "+91-9988776611",
+    "company": null,
+    "isActive": true,
+    "followerCount": 120000,
+    "followingCount": 1150,
+    "postCount": 530,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vivek_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Push your limits! 💪",
+      "hashtags": ["#fitnessguruindia", "#gym", "#health"],
+      "imageContent": "Fitness challenges and workout tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% male",
+        "ageGroups": "18-35 years old (71%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["fitness", "gym", "health", "workout"],
+    "favoriteProduct": "protein bars"
+  },
+  {
+    "id": "67",
+    "name": "Farhana Begum",
+    "username": "farhana_style",
+    "platform": "TikTok",
+    "email": "farhana@stylebd.com",
+    "phone": "+880-8765432175",
+    "company": null,
+    "isActive": true,
+    "followerCount": 71000,
+    "followingCount": 1450,
+    "postCount": 390,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/farhana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Style it your way! 👗",
+      "hashtags": ["#stylebd", "#fashion", "#trending"],
+      "imageContent": "Fashion tips and styling videos"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Trendy tone suits fashion and lifestyle brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "76% female",
+        "ageGroups": "18-30 years old (66%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["fashion", "style", "trending", "outfits"],
+    "favoriteProduct": "jewelry"
+  },
+  {
+    "id": "68",
+    "name": "Aditya Rao",
+    "username": "aditya_travelshots",
+    "platform": "Instagram",
+    "email": "aditya@travelshotsindia.com",
+    "phone": "+91-9123456779",
+    "company": null,
+    "isActive": true,
+    "followerCount": 108000,
+    "followingCount": 1200,
+    "postCount": 540,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/aditya_profile.jpg",
+    "postsAnalysis": {
+      "captions": "See the world through my lens! 📷",
+      "hashtags": ["#travelshotsindia", "#travel", "#photography"],
+      "imageContent": "Travel photography and destination highlights"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and photography brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "57% male",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["India", "Thailand", "United Kingdom"]
+    },
+    "tags": ["travel", "photography", "adventure", "explore"],
+    "favoriteProduct": "travel cameras"
+  },
+  {
+    "id": "69",
+    "name": "Taslima Akter",
+    "username": "taslima_cooking",
+    "platform": "YouTube",
+    "email": "taslima@cookingbd.com",
+    "phone": "+880-9988776600",
+    "company": null,
+    "isActive": true,
+    "followerCount": 140000,
+    "followingCount": 900,
+    "postCount": 260,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/taslima_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Cook with joy! 🍳",
+      "hashtags": ["#cookingbd", "#recipes", "#food"],
+      "imageContent": "Cooking tutorials and recipe videos"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Warm tone suits food and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "70% female",
+        "ageGroups": "25-45 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["cooking", "recipes", "food", "lifestyle"],
+    "favoriteProduct": "kitchen gadgets"
+  },
+  {
+    "id": "70",
+    "name": "Neha Sharma",
+    "username": "neha_beautytips",
+    "platform": "Instagram",
+    "email": "neha@beautytipsindia.com",
+    "phone": "+91-9876543204",
+    "company": null,
+    "isActive": true,
+    "followerCount": 88000,
+    "followingCount": 1250,
+    "postCount": 470,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/neha_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Be your own kind of beautiful! 💖",
+      "hashtags": ["#beautytipsindia", "#makeup", "#skincare"],
+      "imageContent": "Beauty tutorials and product reviews"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Inspirational tone suits beauty and skincare brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "80% female",
+        "ageGroups": "18-30 years old (68%)"
+      },
+      "locations": ["India", "United Arab Emirates", "Canada"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "skincare products"
+  },
+  {
+    "id": "71",
+    "name": "Imran Hossain",
+    "username": "imran_gaming",
+    "platform": "YouTube",
+    "email": "imran@gamingbd.com",
+    "phone": "+880-9123456768",
+    "company": null,
+    "isActive": true,
+    "followerCount": 170000,
+    "followingCount": 850,
+    "postCount": 280,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/imran_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Game on! 🎮",
+      "hashtags": ["#gamingbd", "#esports", "#gaming"],
+      "imageContent": "Gaming streams and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 87,
+      "alignmentNotes": "Energetic tone suits gaming and tech brands"
+    },
+    "authenticityScore": {
+      "score": 88,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "82% male",
+        "ageGroups": "16-30 years old (76%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["gaming", "esports", "tech", "entertainment"],
+    "favoriteProduct": "gaming consoles"
+  },
+  {
+    "id": "72",
+    "name": "Pooja Patel",
+    "username": "pooja_yogini",
+    "platform": "Instagram",
+    "email": "pooja@yoginiindia.com",
+    "phone": "+91-9988776599",
+    "company": null,
+    "isActive": true,
+    "followerCount": 85000,
+    "followingCount": 1100,
+    "postCount": 450,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/pooja_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Find your zen! 🧘‍♀️",
+      "hashtags": ["#yoginiindia", "#yoga", "#wellness"],
+      "imageContent": "Yoga poses and meditation tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Calming tone suits wellness and yoga brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.5%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "74% female",
+        "ageGroups": "25-40 years old (66%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["yoga", "wellness", "health", "meditation"],
+    "favoriteProduct": "yoga apparel"
+  },
+  {
+    "id": "73",
+    "name": "Asif Khan",
+    "username": "asif_photography",
+    "platform": "Instagram",
+    "email": "asif@photographybd.com",
+    "phone": "+880-9876543205",
+    "company": null,
+    "isActive": true,
+    "followerCount": 100000,
+    "followingCount": 1350,
+    "postCount": 510,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/asif_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Freeze the moment! 📸",
+      "hashtags": ["#photographybd", "#art", "#photography"],
+      "imageContent": "Photography portfolios and tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Artistic tone suits photography and camera brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "62% male",
+        "ageGroups": "18-35 years old (71%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["photography", "art", "creative", "visuals"],
+    "favoriteProduct": "camera tripods"
+  },
+  {
+    "id": "74",
+    "name": "Sadia Islam",
+    "username": "sadia_baking",
+    "platform": "TikTok",
+    "email": "sadia@bakingbd.com",
+    "phone": "+880-9123456767",
+    "company": null,
+    "isActive": true,
+    "followerCount": 68000,
+    "followingCount": 1550,
+    "postCount": 380,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/sadia_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Sweet creations! 🧁",
+      "hashtags": ["#bakingbd", "#desserts", "#baking"],
+      "imageContent": "Baking recipes and dessert ideas"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Sweet tone suits baking and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "76% female",
+        "ageGroups": "18-35 years old (67%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["baking", "desserts", "cooking", "lifestyle"],
+    "favoriteProduct": "baking ingredients"
+  },
+  {
+    "id": "75",
+    "name": "Rakesh Kumar",
+    "username": "rakesh_techie",
+    "platform": "YouTube",
+    "email": "rakesh@techieindia.com",
+    "phone": "+91-9876543206",
+    "company": null,
+    "isActive": true,
+    "followerCount": 155000,
+    "followingCount": 900,
+    "postCount": 240,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rakesh_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech for everyone! 📱",
+      "hashtags": ["#techieindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and gadget unboxing"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone suits tech and gadget brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "74% male",
+        "ageGroups": "18-40 years old (73%)"
+      },
+      "locations": ["India", "United States", "Canada"]
+    },
+    "tags": ["tech", "gadgets", "reviews", "tutorials"],
+    "favoriteProduct": "smartwatches"
+  },
+  {
+    "id": "76",
+    "name": "Mina Begum",
+    "username": "mina_fashionvibes",
+    "platform": "Instagram",
+    "email": "mina@fashionvibesbd.com",
+    "phone": "+880-9988776588",
+    "company": null,
+    "isActive": true,
+    "followerCount": 92000,
+    "followingCount": 1200,
+    "postCount": 490,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/mina_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Dress to impress! 👗",
+      "hashtags": ["#fashionvibesbd", "#style", "#fashion"],
+      "imageContent": "Fashion hauls and style inspiration"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 82,
+      "alignmentNotes": "Trendy tone suits fashion and lifestyle brands"
+    },
+    "authenticityScore": {
+      "score": 84,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.6%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "79% female",
+        "ageGroups": "18-30 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["fashion", "style", "lifestyle", "outfits"],
+    "favoriteProduct": "handbags"
+  },
+  {
+    "id": "77",
+    "name": "Arnav Singh",
+    "username": "arnav_adventure",
+    "platform": "Instagram",
+    "email": "arnav@adventureindia.com",
+    "phone": "+91-9123456766",
+    "company": null,
+    "isActive": true,
+    "followerCount": 112000,
+    "followingCount": 1250,
+    "postCount": 560,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arnav_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Live for adventure! 🏍️",
+      "hashtags": ["#adventureindia", "#travel", "#explore"],
+      "imageContent": "Adventure travel and outdoor experiences"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Thrilling tone suits adventure and travel brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "60% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Australia", "Thailand"]
+    },
+    "tags": ["adventure", "travel", "outdoors", "explore"],
+    "favoriteProduct": "camping gear"
+  },
+  {
+    "id": "78",
+    "name": "Jasmine Akter",
+    "username": "jasmine_crafts",
+    "platform": "TikTok",
+    "email": "jasmine@craftsbd.com",
+    "phone": "+880-9876543207",
+    "company": null,
+    "isActive": true,
+    "followerCount": 66000,
+    "followingCount": 1500,
+    "postCount": 370,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/jasmine_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Craft it yourself! ✂️",
+      "hashtags": ["#craftsbd", "#diy", "#handmade"],
+      "imageContent": "DIY craft tutorials and ideas"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Creative tone suits craft and hobby brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.3%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "78% female",
+        "ageGroups": "25-45 years old (62%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["crafts", "diy", "handmade", "creative"],
+    "favoriteProduct": "craft kits"
+  },
+  {
+    "id": "79",
+    "name": "Kunal Desai",
+    "username": "kunal_techworld",
+    "platform": "YouTube",
+    "email": "kunal@techworldindia.com",
+    "phone": "+91-9988776577",
+    "company": null,
+    "isActive": true,
+    "followerCount": 165000,
+    "followingCount": 900,
+    "postCount": 260,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/kunal_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Explore the tech world! 💻",
+      "hashtags": ["#techworldindia", "#gadgets", "#tech"],
+      "imageContent": "Tech tutorials and product reviews"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone suits tech and gadget brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "73% male",
+        "ageGroups": "18-40 years old (74%)"
+      },
+      "locations": ["India", "United States", "Singapore"]
+    },
+    "tags": ["tech", "gadgets", "tutorials", "reviews"],
+    "favoriteProduct": "headphones"
+  },
+  {
+    "id": "80",
+    "name": "Rubina Begum",
+    "username": "rubina_foodie",
+    "platform": "Instagram",
+    "email": "rubina@foodiebd.com",
+    "phone": "+880-9123456765",
+    "company": null,
+    "isActive": true,
+    "followerCount": 94000,
+    "followingCount": 1300,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rubina_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Savor the flavor! 🍲",
+      "hashtags": ["#foodiebd", "#foodlover", "#recipes"],
+      "imageContent": "Food recipes and culinary adventures"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Vibrant tone suits food and beverage brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "69% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["food", "cooking", "recipes", "lifestyle"],
+    "favoriteProduct": "spices"
+  },
+  {
+    "id": "81",
+    "name": "Siddharth Menon",
+    "username": "siddharth_fitness",
+    "platform": "Instagram",
+    "email": "siddharth@fitnessindia.com",
+    "phone": "+91-9876543208",
+    "company": null,
+    "isActive": true,
+    "followerCount": 123000,
+    "followingCount": 1150,
+    "postCount": 540,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/siddharth_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Train like a beast! 💪",
+      "hashtags": ["#fitnessindia", "#gym", "#health"],
+      "imageContent": "Gym workouts and fitness motivation"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "67% male",
+        "ageGroups": "18-35 years old (71%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["fitness", "gym", "health", "workout"],
+    "favoriteProduct": "gym equipment"
+  },
+  {
+    "id": "82",
+    "name": "Nusrat Jahan",
+    "username": "nusrat_beauty",
+    "platform": "TikTok",
+    "email": "nusrat@beautybd.com",
+    "phone": "+880-9988776566",
+    "company": null,
+    "isActive": true,
+    "followerCount": 73000,
+    "followingCount": 1600,
+    "postCount": 410,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/nusrat_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Glow like never before! 💄",
+      "hashtags": ["#beautybd", "#makeup", "#skincare"],
+      "imageContent": "Makeup tutorials and beauty hacks"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty and skincare brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "81% female",
+        "ageGroups": "18-30 years old (69%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "face masks"
+  },
+  {
+    "id": "83",
+    "name": "Vijay Patel",
+    "username": "vijay_travelogue",
+    "platform": "Instagram",
+    "email": "vijay@travelogueindia.com",
+    "phone": "+91-9123456764",
+    "company": null,
+    "isActive": true,
+    "followerCount": 110000,
+    "followingCount": 1250,
+    "postCount": 550,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vijay_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Journey with me! 🌏",
+      "hashtags": ["#travelogueindia", "#travel", "#adventure"],
+      "imageContent": "Travel stories and destination guides"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and adventure brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "56% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Thailand", "United Kingdom"]
+    },
+    "tags": ["travel", "adventure", "photography", "explore"],
+    "favoriteProduct": "travel guides"
+  },
+  {
+    "id": "84",
+    "name": "Farzana Begum",
+    "username": "farzana_diyqueen",
+    "platform": "Instagram",
+    "email": "farzana@diyqueenbd.com",
+    "phone": "+880-9876543209",
+    "company": null,
+    "isActive": true,
+    "followerCount": 68000,
+    "followingCount": 1050,
+    "postCount": 380,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/farzana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Create something amazing! 🎨",
+      "hashtags": ["#diyqueenbd", "#crafts", "#handmade"],
+      "imageContent": "DIY projects and craft ideas"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Creative tone suits craft and hobby brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "77% female",
+        "ageGroups": "25-45 years old (63%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["diy", "crafts", "handmade", "creative"],
+    "favoriteProduct": "sewing kits"
+  },
+  {
+    "id": "85",
+    "name": "Rohit Sharma",
+    "username": "rohit_techbit",
+    "platform": "YouTube",
+    "email": "rohit@techbitindia.com",
+    "phone": "+91-9988776555",
+    "company": null,
+    "isActive": true,
+    "followerCount": 160000,
+    "followingCount": 900,
+    "postCount": 250,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rohit_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech made easy! 💻",
+      "hashtags": ["#techbitindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone suits tech and gadget brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "74% male",
+        "ageGroups": "18-40 years old (73%)"
+      },
+      "locations": ["India", "United States", "Canada"]
+    },
+    "tags": ["tech", "gadgets", "reviews", "tutorials"],
+    "favoriteProduct": "tablets"
+  },
+  {
+    "id": "86",
+    "name": "Afsana Begum",
+    "username": "afsana_foodvibes",
+    "platform": "Instagram",
+    "email": "afsana@foodvibesbd.com",
+    "phone": "+880-9123456763",
+    "company": null,
+    "isActive": true,
+    "followerCount": 93000,
+    "followingCount": 1300,
+    "postCount": 510,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/afsana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Taste the magic! 🍴",
+      "hashtags": ["#foodvibesbd", "#foodlover", "#recipes"],
+      "imageContent": "Food recipes and culinary tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Vibrant tone suits food and beverage brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "68% female",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["food", "cooking", "recipes", "lifestyle"],
+    "favoriteProduct": "kitchen appliances"
+  },
+  {
+    "id": "87",
+    "name": "Arvind Nair",
+    "username": "arvind_fitnesspro",
+    "platform": "Instagram",
+    "email": "arvind@fitnessproindia.com",
+    "phone": "+91-9876543211",
+    "company": null,
+    "isActive": true,
+    "followerCount": 122000,
+    "followingCount": 1150,
+    "postCount": 530,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arvind_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Sweat it out! 💪",
+      "hashtags": ["#fitnessproindia", "#gym", "#health"],
+      "imageContent": "Workout routines and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (71%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["fitness", "gym", "health", "workout"],
+    "favoriteProduct": "protein shakes"
+  },
+
+  {
+    "id": "88",
+    "name": "Shirin Akter",
+    "username": "shirin_beautyvibes",
+    "platform": "TikTok",
+    "email": "shirin@beautyvibesbd.com",
+    "phone": "+880-9988776544",
+    "company": null,
+    "isActive": true,
+    "followerCount": 74000,
+    "followingCount": 1600,
+    "postCount": 420,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/shirin_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Glow up! ✨",
+      "hashtags": ["#beautyvibesbd", "#makeup", "#skincare", "#beauty"],
+      "imageContent": "Makeup tutorials and skincare tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty and skincare brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "81% female",
+        "ageGroups": "18-30 years old (69%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "eyeshadow palettes"
+  },
+  {
+    "id": "89",
+    "name": "Anil Kapoor",
+    "username": "anil_travelscapes",
+    "platform": "Instagram",
+    "email": "anil@travelscapesindia.com",
+    "phone": "+91-9123456752",
+    "company": null,
+    "isActive": true,
+    "followerCount": 107000,
+    "followingCount": 1300,
+    "postCount": 540,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/anil_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Wander often, wonder always! 🌍",
+      "hashtags": ["#travelscapesindia", "#wanderlust", "#travel"],
+      "imageContent": "Travel photography and destination guides"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and tourism brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "55% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Thailand", "United Kingdom"]
+    },
+    "tags": ["travel", "photography", "adventure", "explore"],
+    "favoriteProduct": "travel journals"
+  },
+  {
+    "id": "90",
+    "name": "Ruma Begum",
+    "username": "ruma_cookingqueen",
+    "platform": "YouTube",
+    "email": "ruma@cookingqueenbd.com",
+    "phone": "+880-9876543214",
+    "company": null,
+    "isActive": true,
+    "followerCount": 145000,
+    "followingCount": 950,
+    "postCount": 270,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/ruma_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Cook with love! 🍳",
+      "hashtags": ["#cookingqueenbd", "#recipes", "#food"],
+      "imageContent": "Cooking tutorials and recipe videos"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Warm tone suits food and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "71% female",
+        "ageGroups": "25-45 years old (66%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["cooking", "recipes", "food", "lifestyle"],
+    "favoriteProduct": "cookware sets"
+  },
+  {
+    "id": "91",
+    "name": "Vikas Yadav",
+    "username": "vikas_fitnesshub",
+    "platform": "Instagram",
+    "email": "vikas@fitnesshubindia.com",
+    "phone": "+91-9988776543",
+    "company": null,
+    "isActive": true,
+    "followerCount": 124000,
+    "followingCount": 1200,
+    "postCount": 550,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/vikas_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Stronger every day! 💪",
+      "hashtags": ["#fitnesshubindia", "#gym", "#health"],
+      "imageContent": "Workout routines and fitness motivation"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "65% male",
+        "ageGroups": "18-35 years old (72%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["fitness", "gym", "health", "workout"],
+    "favoriteProduct": "resistance bands"
+  },
+  {
+    "id": "92",
+    "name": "Tania Akter",
+    "username": "tania_beautyguru",
+    "platform": "TikTok",
+    "email": "tania@beautygurubd.com",
+    "phone": "+880-9123456751",
+    "company": null,
+    "isActive": true,
+    "followerCount": 76000,
+    "followingCount": 1650,
+    "postCount": 430,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/tania_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Shine from within! 💖",
+      "hashtags": ["#beautygurubd", "#makeup", "#skincare"],
+      "imageContent": "Beauty tutorials and skincare routines"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty and skincare brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "82% female",
+        "ageGroups": "18-30 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "moisturizers"
+  },
+  {
+    "id": "93",
+    "name": "Rahul Menon",
+    "username": "rahul_travelpro",
+    "platform": "Instagram",
+    "email": "rahul@travelproindia.com",
+    "phone": "+91-9876543215",
+    "company": null,
+    "isActive": true,
+    "followerCount": 109000,
+    "followingCount": 1250,
+    "postCount": 560,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/rahul_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Adventure is out there! 🌄",
+      "hashtags": ["#travelproindia", "#wanderlust", "#travel"],
+      "imageContent": "Travel itineraries and adventure photos"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and adventure brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "57% male",
+        "ageGroups": "18-35 years old (69%)"
+      },
+      "locations": ["India", "Australia", "New Zealand"]
+    },
+    "tags": ["travel", "adventure", "photography", "explore"],
+    "favoriteProduct": "travel backpacks"
+  },
+  {
+    "id": "94",
+    "name": "Naima Begum",
+    "username": "naima_diycrafts",
+    "platform": "Instagram",
+    "email": "naima@diycraftsbd.com",
+    "phone": "+880-9988776532",
+    "company": null,
+    "isActive": true,
+    "followerCount": 69000,
+    "followingCount": 1100,
+    "postCount": 390,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/naima_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Craft your world! 🎨",
+      "hashtags": ["#diycraftsbd", "#crafts", "#handmade"],
+      "imageContent": "DIY projects and craft tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 80,
+      "alignmentNotes": "Creative tone suits craft and hobby brands"
+    },
+    "authenticityScore": {
+      "score": 82,
+      "fakeFollowersEstimate": "10%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "78% female",
+        "ageGroups": "25-45 years old (62%)"
+      },
+      "locations": ["Bangladesh", "India", "Canada"]
+    },
+    "tags": ["diy", "crafts", "handmade", "creative"],
+    "favoriteProduct": "craft supplies"
+  },
+  {
+    "id": "95",
+    "name": "Suresh Nair",
+    "username": "suresh_techbyte",
+    "platform": "YouTube",
+    "email": "suresh@techbyteindia.com",
+    "phone": "+91-9123456750",
+    "company": null,
+    "isActive": true,
+    "followerCount": 158000,
+    "followingCount": 900,
+    "postCount": 250,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/suresh_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Tech insights for all! 💻",
+      "hashtags": ["#techbyteindia", "#gadgets", "#reviews"],
+      "imageContent": "Tech reviews and tutorials"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 88,
+      "alignmentNotes": "Informative tone suits tech and gadget brands"
+    },
+    "authenticityScore": {
+      "score": 89,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.2%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "74% male",
+        "ageGroups": "18-40 years old (73%)"
+      },
+      "locations": ["India", "United States", "Singapore"]
+    },
+    "tags": ["tech", "gadgets", "reviews", "tutorials"],
+    "favoriteProduct": "wireless earbuds"
+  },
+  {
+    "id": "96",
+    "name": "Sohana Akter",
+    "username": "sohana_foodstories",
+    "platform": "Instagram",
+    "email": "sohana@foodstoriesbd.com",
+    "phone": "+880-9876543216",
+    "company": null,
+    "isActive": true,
+    "followerCount": 92000,
+    "followingCount": 1300,
+    "postCount": 500,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/sohana_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Food is love! 🍴",
+      "hashtags": ["#foodstoriesbd", "#foodlover", "#recipes"],
+      "imageContent": "Food recipes and restaurant reviews"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Vibrant tone suits food and beverage brands"
+    },
+    "authenticityScore": {
+      "score": 85,
+      "fakeFollowersEstimate": "8%",
+      "engagementRate": "4.7%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "69% female",
+        "ageGroups": "18-35 years old (68%)"
+      },
+      "locations": ["Bangladesh", "India", "United Kingdom"]
+    },
+    "tags": ["food", "cooking", "recipes", "lifestyle"],
+    "favoriteProduct": "kitchen gadgets"
+  },
+  {
+    "id": "97",
+    "name": "Karan Patel",
+    "username": "karan_fitnessworld",
+    "platform": "Instagram",
+    "email": "karan@fitnessworldindia.com",
+    "phone": "+91-9988776521",
+    "company": null,
+    "isActive": true,
+    "followerCount": 121000,
+    "followingCount": 1150,
+    "postCount": 540,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/karan_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Build your strength! 💪",
+      "hashtags": ["#fitnessworldindia", "#gym", "#health"],
+      "imageContent": "Workout routines and fitness tips"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 85,
+      "alignmentNotes": "Motivational tone suits fitness and health brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.8%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "66% male",
+        "ageGroups": "18-35 years old (71%)"
+      },
+      "locations": ["India", "United States", "Australia"]
+    },
+    "tags": ["fitness", "gym", "health", "workout"],
+    "favoriteProduct": "protein powders"
+  },
+  {
+    "id": "98",
+    "name": "Lamia Begum",
+    "username": "lamia_beautybliss",
+    "platform": "TikTok",
+    "email": "lamia@beautyblissbd.com",
+    "phone": "+880-9123456749",
+    "company": null,
+    "isActive": true,
+    "followerCount": 75000,
+    "followingCount": 1600,
+    "postCount": 420,
+    "isVerified": false,
+    "isBusinessAccount": false,
+    "profilePictureUrl": "https://example.com/lamia_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Be your best self! 💄",
+      "hashtags": ["#beautyblissbd", "#makeup", "#skincare"],
+      "imageContent": "Makeup tutorials and beauty hacks"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 81,
+      "alignmentNotes": "Glamorous tone suits beauty and skincare brands"
+    },
+    "authenticityScore": {
+      "score": 83,
+      "fakeFollowersEstimate": "9%",
+      "engagementRate": "4.4%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "81% female",
+        "ageGroups": "18-30 years old (69%)"
+      },
+      "locations": ["Bangladesh", "India", "United Arab Emirates"]
+    },
+    "tags": ["beauty", "makeup", "skincare", "lifestyle"],
+    "favoriteProduct": "foundations"
+  },
+  {
+    "id": "99",
+    "name": "Arjun Nair",
+    "username": "arjun_travelmania",
+    "platform": "Instagram",
+    "email": "arjun@travelmaniaindia.com",
+    "phone": "+91-9876543217",
+    "company": null,
+    "isActive": true,
+    "followerCount": 110000,
+    "followingCount": 1250,
+    "postCount": 550,
+    "isVerified": false,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/arjun_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Explore the unknown! 🌏",
+      "hashtags": ["#travelmaniaindia", "#wanderlust", "#travel"],
+      "imageContent": "Travel adventures and destination highlights"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 84,
+      "alignmentNotes": "Inspirational tone suits travel and adventure brands"
+    },
+    "authenticityScore": {
+      "score": 86,
+      "fakeFollowersEstimate": "7%",
+      "engagementRate": "4.9%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "56% male",
+        "ageGroups": "18-35 years old (70%)"
+      },
+      "locations": ["India", "Thailand", "United Kingdom"]
+    },
+    "tags": ["travel", "adventure", "photography", "explore"],
+    "favoriteProduct": "travel cameras"
+  },
+  {
+    "id": "100",
+    "name": "Shaila Akter",
+    "username": "shaila_bakingstar",
+    "platform": "YouTube",
+    "email": "shaila@bakingstarbd.com",
+    "phone": "+880-9988776510",
+    "company": null,
+    "isActive": true,
+    "followerCount": 140000,
+    "followingCount": 950,
+    "postCount": 260,
+    "isVerified": true,
+    "isBusinessAccount": true,
+    "profilePictureUrl": "https://example.com/shaila_profile.jpg",
+    "postsAnalysis": {
+      "captions": "Bake with passion! 🧁",
+      "hashtags": ["#bakingstarbd", "#baking", "#desserts"],
+      "imageContent": "Baking tutorials and dessert recipes"
+    },
+    "brandAlignment": {
+      "toneMatchScore": 83,
+      "alignmentNotes": "Sweet tone suits baking and kitchen brands"
+    },
+    "authenticityScore": {
+      "score": 87,
+      "fakeFollowersEstimate": "6%",
+      "engagementRate": "5.1%"
+    },
+    "audienceMatch": {
+      "demographics": {
+        "gender": "72% female",
+        "ageGroups": "25-45 years old (65%)"
+      },
+      "locations": ["Bangladesh", "India", "United States"]
+    },
+    "tags": ["baking", "desserts", "cooking", "lifestyle"],
+    "favoriteProduct": "baking tools"
+  }
+]
