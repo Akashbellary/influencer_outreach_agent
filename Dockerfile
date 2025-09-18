@@ -1,4 +1,4 @@
-# Multi-process container: Flask backend + Node/Puppeteer worker + Next.js frontend
+# Multi-process container: Flask backend + Next.js frontend (Node also available if needed)
 FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -30,22 +30,19 @@ COPY backend/requirements.txt backend/requirements.txt
 RUN pip install --no-cache-dir -r backend/requirements.txt \
     && pip install --no-cache-dir gunicorn
 
-# Install backend Node deps (e.g. Puppeteer)
-COPY backend/package.json backend/package-lock.json* backend/
-RUN cd backend && npm ci --omit=dev \
-    && npx puppeteer browsers install chrome
-
-# Copy all code
+# Copy full app code
 COPY . .
 
-# Install frontend deps and build
+# Install frontend deps and build Next.js
 RUN npm ci --omit=dev \
     && npm run build
 
 ENV PORT=3000
 EXPOSE 3000
 
+# Copy startup script
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
 CMD ["/app/start.sh"]
+
