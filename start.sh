@@ -12,4 +12,5 @@ fi
 # Start frontend on $PORT (Render provides PORT)
 cd /app
 export PORT="${PORT:-3000}"
+export NODE_ENV="production"
 exec npm run start -- -p "$PORT"

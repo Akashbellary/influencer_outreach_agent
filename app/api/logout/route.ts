@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const response = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/logout`, {
+    const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/logout' : 'http://127.0.0.1:8000/logout'}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

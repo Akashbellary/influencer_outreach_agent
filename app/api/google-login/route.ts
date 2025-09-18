@@ -3,7 +3,7 @@ import { NextRequest } from 'next/server';
 export async function GET(request: NextRequest) {
   try {
     // Forward the request to the Flask backend
-    const response = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/google-login`, {
+    const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/google-login' : 'http://127.0.0.1:8000/google-login'}`, {
       credentials: 'include',
     });
 
