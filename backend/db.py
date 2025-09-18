@@ -35,7 +35,7 @@ def _ensure_connection():
 def insert_permalinks(permalinks: List[str], hashtag: str):
     """Best-effort insert of permalinks for a hashtag. No-ops if Mongo not configured."""
     _, db = _ensure_connection()
-    if not db:
+    if db is None:
         return
     try:
         col = db.get_collection("permalinks")

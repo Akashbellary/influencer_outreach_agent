@@ -80,7 +80,7 @@ def update_user_profile(user_id: str, updates: Dict[str, Any]) -> bool:
 
 # ---- Todos helpers (compat for blueprints.todos) ----
 def get_todos(user_id: str) -> Any:
-	if not todos_collection:
+	if todos_collection is None:
 		return []
 	try:
 		cursor = todos_collection.find({"user_id": user_id}).sort("created_at")
@@ -97,7 +97,7 @@ def get_todos(user_id: str) -> Any:
 		return []
 
 def create_todo(user_id: str, text: str) -> Optional[str]:
-	if not todos_collection:
+	if todos_collection is None:
 		return None
 	try:
 		res = todos_collection.insert_one({
@@ -111,7 +111,7 @@ def create_todo(user_id: str, text: str) -> Optional[str]:
 		return None
 
 def update_todo(todo_id: str, updates: Dict[str, Any]) -> bool:
-	if not todos_collection or not ObjectId or not todo_id:
+	if todos_collection is None or not ObjectId or not todo_id:
 		return False
 	try:
 		res = todos_collection.update_one({"_id": ObjectId(todo_id)}, {"$set": updates or {}})

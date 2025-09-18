@@ -2,7 +2,7 @@ import { NextRequest } from 'next/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const response = await fetch('http://127.0.0.1:8000/current-user', {
+    const response = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/current-user`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

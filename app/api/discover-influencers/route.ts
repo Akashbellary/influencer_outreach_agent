@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       hashtags.length > 0 ? hashtags[0].replace("#", "") : productName?.toLowerCase().replace(/\s+/g, "") || "product"
 
     // Start async discovery job in Flask
-    const startRes = await fetch("http://127.0.0.1:8000/start-discovery", {
+    const startRes = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/start-discovery`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hashtag: searchQuery, productName, productDescription }),
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Immediately fetch first snapshot
-    const statusRes = await fetch(`http://127.0.0.1:8000/discovery-status/${start.job_id}`)
+    const statusRes = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/discovery-status/${start.job_id}`)
     const status = await statusRes.json()
 
     // Map snapshot user_data to influencers shape

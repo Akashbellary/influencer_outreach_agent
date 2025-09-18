@@ -43,10 +43,10 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.config['SESSION_COOKIE_SECURE'] = False  # Set to True in production with HTTPS
 
 # Configure CORS with credentials support
-CORS(app, supports_credentials=True, origins=["http://localhost:3000", "http://localhost:3001"], allow_headers=[
+CORS(app, supports_credentials=True, origins=["http://localhost:3000", "http://localhost:3001", "https://campaignio.onrender.com"], allow_headers=[
     "Content-Type",
     "Authorization"
-], methods=["GET", "POST", "OPTIONS"], expose_headers=["Access-Control-Allow-Credentials"])
+], methods=["GET", "POST", "OPTIONS", "PATCH"], expose_headers=["Access-Control-Allow-Credentials"])
 
 # Register async discovery blueprint (non-breaking)
 app.register_blueprint(discovery_bp)

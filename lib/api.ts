@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:8000/api";
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? "/api"  // In production, use relative URLs (same domain)
+  : "http://localhost:8000/api";  // In development, use localhost
 
 export const getCampaigns = async () => {
   const response = await fetch(`${API_URL}/campaigns`);

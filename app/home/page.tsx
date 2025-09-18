@@ -544,7 +544,7 @@ export default function HomePage() {
   const handleLogout = async () => {
     try {
       // Call backend logout endpoint
-      await fetch("http://127.0.0.1:8000/logout", {
+      await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000' : 'http://127.0.0.1:8000'}/logout`, {
         method: "POST",
         credentials: "include",
       });

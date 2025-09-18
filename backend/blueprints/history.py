@@ -14,7 +14,7 @@ def _col():
 @history_bp.route("/history", methods=["POST"])
 def create_history():
 	col = _col()
-	if not col:
+	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
 	data = request.get_json(silent=True) or {}
 	entry = {
@@ -33,7 +33,7 @@ def create_history():
 @history_bp.route("/history", methods=["GET"])
 def list_history():
 	col = _col()
-	if not col:
+	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
 	user_id = request.args.get("userId")
 	q: Dict[str, Any] = {}
@@ -55,7 +55,7 @@ def list_history():
 @history_bp.route("/history/<hid>", methods=["GET"])
 def get_history(hid: str):
 	col = _col()
-	if not col:
+	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
 	from bson.objectid import ObjectId
 	doc = col.find_one({"_id": ObjectId(hid)})
@@ -77,7 +77,7 @@ def get_history(hid: str):
 @history_bp.route("/history/<hid>/influencers", methods=["PATCH"])
 def append_influencers(hid: str):
 	col = _col()
-	if not col:
+	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
 	body = request.get_json(silent=True) or {}
 	new_infs = body.get("influencers") or []
