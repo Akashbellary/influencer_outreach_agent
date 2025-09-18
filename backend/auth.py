@@ -13,8 +13,9 @@ import pathlib
 import urllib
 from bson.objectid import ObjectId
 
-# Allow OAuthlib to work with http://localhost for development
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+# Allow OAuthlib to work with http://localhost for development only
+if os.environ.get('NODE_ENV') != 'production':
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # Load config
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -50,7 +51,11 @@ flow = Flow.from_client_config(
         "https://www.googleapis.com/auth/calendar.readonly",
     ]
 )
-flow.redirect_uri = GOOGLE_CLIENT_CONFIG["web"]["redirect_uris"][0]
+# Use production redirect URI in production, localhost in development
+if os.environ.get('NODE_ENV') == 'production':
+    flow.redirect_uri = "https://campaignio.onrender.com/google-callback"
+else:
+    flow.redirect_uri = "http://localhost:8000/google-callback"
 
 def hash_password(password, salt=None):
     """Hash a password with salt for secure storage"""
