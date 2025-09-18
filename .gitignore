@@ -1,27 +1,52 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# debug
+# Node
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
-# env files
-.env*
+# Editor/OS
+.DS_Store
+Thumbs.db
+.env
+.env.*
 
-# vercel
-.vercel
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Build
+dist/
+build/
+.next/
+out/
+
+# Archives
+*.zip
+*.tar.gz
+
+# Project-specific ignores (local only)
+test/
+backend/seed.py
+ 
+# Sensitive configs and secrets
+backend/config.json
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.keystore
+*.jks
+
+# Local service metadata
+.vercel/
+.render/
+
+

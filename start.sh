@@ -3,7 +3,6 @@ set -euo pipefail
 
 # Start backend on 0.0.0.0:8000
 cd /app/backend
-# Fallback to python if gunicorn unavailable (should be installed)
 if command -v gunicorn >/dev/null 2>&1; then
   gunicorn app:app -b 0.0.0.0:8000 &
 else
