@@ -34,7 +34,8 @@ RUN pip install --no-cache-dir -r backend/requirements.txt \
 COPY . .
 
 # Install frontend deps and build Next.js
-RUN npm ci --omit=dev --legacy-peer-deps \
+RUN npm config set legacy-peer-deps true \
+    && npm install --no-audit --no-fund \
     && npm run build
 
 ENV PORT=3000
