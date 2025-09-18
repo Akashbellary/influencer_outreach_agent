@@ -144,6 +144,7 @@ def authenticate_user(email, password):
 def google_login_callback():
     """Handle Google OAuth callback"""
     try:
+        print(f"[v0] Google OAuth callback received: {request.url}")
         # Fetch token using authorization code
         flow.fetch_token(authorization_response=request.url)
         
@@ -200,11 +201,13 @@ def google_login_callback():
         }
         user_data_encoded = urllib.parse.quote(json.dumps(user_data))
         
+        print(f"[v0] OAuth success - redirecting to frontend with user data: {user_data}")
         # Redirect to the frontend callback page to process parameters
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=true&user_data={user_data_encoded}")
+        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/google-callback?success=true&user_data={user_data_encoded}")
     except Exception as e:
-        # Redirect to frontend login page with error
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}")
+        print(f"[v0] OAuth error: {str(e)}")
+        # Redirect to frontend callback page with error
+        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/google-callback?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}")
 
 def get_google_login_url():
     """Get Google OAuth login URL"""
