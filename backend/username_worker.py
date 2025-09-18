@@ -88,7 +88,7 @@ def _get_user_info(ig_user_id: str, access_token: str, username: str) -> Dict[st
     return {}
 
 def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], product_description: Optional[str]):
-
+    print(f"[v0] Worker thread started for job {job_id}, hashtag: {hashtag}")
     job = _jobs[job_id]
     try:
         cfg = _load_config()
@@ -138,11 +138,14 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
 
 @discovery_bp.route("/start-discovery", methods=["POST"])
 def start_discovery():
+    print(f"[v0] start_discovery called with data: {request.get_json(silent=True)}")
     data = request.get_json(silent=True) or {}
     hashtag = (data.get("hashtag") or "").strip()
     product_name = (data.get("productName") or "").strip() or None
     product_description = (data.get("productDescription") or "").strip() or None
+    print(f"[v0] Parsed hashtag: {hashtag}, product_name: {product_name}")
     if not hashtag:
+        print(f"[v0] Error: hashtag is required")
         return jsonify({"success": False, "message": "hashtag is required"}), 400
 
     job_id = uuid.uuid4().hex
@@ -159,6 +162,7 @@ def start_discovery():
     t = threading.Thread(target=_worker_thread, args=(job_id, hashtag, product_name, product_description), daemon=True)
     t.start()
 
+    print(f"[v0] Started discovery job: {job_id}")
     return jsonify({"success": True, "job_id": job_id})
 
 

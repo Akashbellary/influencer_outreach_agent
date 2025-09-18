@@ -283,6 +283,12 @@ export default function HomePage() {
       setFallbackPermalinks([]);
       setShowInfluencers(true);
 
+      console.log("[v0] Calling /api/discover-influencers with:", {
+        hashtags: hashtags,
+        productName: productName.trim(),
+        productDescription: productDescription.trim(),
+      });
+
       const response = await fetch("/api/discover-influencers", {
         method: "POST",
         headers: {
@@ -295,7 +301,9 @@ export default function HomePage() {
         }),
       });
 
+      console.log("[v0] Response status:", response.status);
       const data = await response.json();
+      console.log("[v0] Response data:", data);
 
       if (data.success) {
         if (data.jobId) {
@@ -544,10 +552,17 @@ export default function HomePage() {
   const handleLogout = async () => {
     try {
       // Call backend logout endpoint
-      await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000/logout' : 'http://127.0.0.1:8000/logout'}`, {
-        method: "POST",
-        credentials: "include",
-      });
+      await fetch(
+        `${
+          process.env.NODE_ENV === "production"
+            ? "http://localhost:8000/logout"
+            : "http://127.0.0.1:8000/logout"
+        }`,
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
     } catch (error) {
       console.error("Logout error:", error);
     } finally {

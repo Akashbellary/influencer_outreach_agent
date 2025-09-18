@@ -52,12 +52,19 @@ export async function POST(request: NextRequest) {
       hashtags.length > 0 ? hashtags[0].replace("#", "") : productName?.toLowerCase().replace(/\s+/g, "") || "product"
 
     // Start async discovery job in Flask
-    const startRes = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000/start-discovery' : 'http://127.0.0.1:8000/start-discovery'}`, {
+    const backendUrl = `${process.env.NODE_ENV === 'production' ? 'http://localhost:8000/start-discovery' : 'http://127.0.0.1:8000/start-discovery'}`
+    console.log(`[v0] Calling backend: ${backendUrl}`)
+    
+    const startRes = await fetch(backendUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ hashtag: searchQuery, productName, productDescription }),
     })
+    
+    console.log(`[v0] Backend response status: ${startRes.status}`)
     const start = await startRes.json()
+    console.log(`[v0] Backend response:`, start)
+    
     if (!startRes.ok || !start.success) {
       return NextResponse.json({ success: false, error: start.message || "Failed to start discovery" }, { status: 500 })
     }
