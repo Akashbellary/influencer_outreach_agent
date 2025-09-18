@@ -5,24 +5,85 @@ puppeteer.use(StealthPlugin());
 
 async function getInstagramUsernameFromPost(page, permalinkUrl) {
   try {
+    console.error(`[v0] Navigating to: ${permalinkUrl}`);
     await page.goto(permalinkUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-    const imgHandle = await page.waitForSelector('div[role="dialog"] img[alt*="profile picture"]', { timeout: 10000 });
-    const altText = await imgHandle.evaluate((el) => el.alt);
-    const match = altText.match(/([\w.]+)'s profile picture/);
-    if (match) return match[1];
-  } catch {}
+    console.error(`[v0] Page loaded, waiting for profile picture...`);
+    
+    // Try multiple selectors for profile picture
+    const selectors = [
+      'div[role="dialog"] img[alt*="profile picture"]',
+      'article img[alt*="profile picture"]',
+      'img[alt*="profile picture"]',
+      'a[href*="/"] img[alt*="profile picture"]'
+    ];
+    
+    let imgHandle = null;
+    for (const selector of selectors) {
+      try {
+        console.error(`[v0] Trying selector: ${selector}`);
+        imgHandle = await page.waitForSelector(selector, { timeout: 5000 });
+        if (imgHandle) {
+          console.error(`[v0] Found element with selector: ${selector}`);
+          break;
+        }
+      } catch (e) {
+        console.error(`[v0] Selector failed: ${selector} - ${e.message}`);
+      }
+    }
+    
+    if (imgHandle) {
+      const altText = await imgHandle.evaluate((el) => el.alt);
+      console.error(`[v0] Profile picture alt text: ${altText}`);
+      const match = altText.match(/([\w.]+)'s profile picture/);
+      if (match) {
+        console.error(`[v0] Extracted username from alt text: ${match[1]}`);
+        return match[1];
+      }
+    }
+    
+    console.error(`[v0] No profile picture found, checking page content...`);
+    const pageContent = await page.content();
+    console.error(`[v0] Page title: ${await page.title()}`);
+    console.error(`[v0] Page URL: ${page.url()}`);
+    
+    // Check if we're on a login page or blocked
+    if (pageContent.includes('login') || pageContent.includes('Login') || pageContent.includes('log in')) {
+      console.error(`[v0] Detected login page - Instagram is blocking us`);
+      return null;
+    }
+    
+    // Try to find any username in the page
+    const usernameMatch = pageContent.match(/@(\w+)/);
+    if (usernameMatch) {
+      console.error(`[v0] Found username in page content: ${usernameMatch[1]}`);
+      return usernameMatch[1];
+    }
+    
+  } catch (e) {
+    console.error(`[v0] Error in getInstagramUsernameFromPost: ${e.message}`);
+  }
 
+  // Fallback: try to extract from URL
   const urlMatch = permalinkUrl.match(/instagram\.com\/([^\/]+)\//);
   if (urlMatch && !["p", "reel", "reels", "tv", "stories", "explore"].includes(urlMatch[1])) {
+    console.error(`[v0] Extracted username from URL: ${urlMatch[1]}`);
     return urlMatch[1];
   }
 
+  // Fallback: try to extract from page title
   try {
     const title = await page.title();
+    console.error(`[v0] Page title: ${title}`);
     const titleMatch = title.match(/@([\w.]+)/);
-    if (titleMatch) return titleMatch[1];
-  } catch {}
+    if (titleMatch) {
+      console.error(`[v0] Extracted username from title: ${titleMatch[1]}`);
+      return titleMatch[1];
+    }
+  } catch (e) {
+    console.error(`[v0] Error getting page title: ${e.message}`);
+  }
 
+  console.error(`[v0] No username found for: ${permalinkUrl}`);
   return null;
 }
 
