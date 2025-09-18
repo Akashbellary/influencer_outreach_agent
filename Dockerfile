@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     libxcb1 libxcomposite1 libxdamage1 libxext6 libxfixes3 \
     libxrandr2 libxrender1 libxshmfence1 lsb-release \
     xdg-utils wget \
+    chromium \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
