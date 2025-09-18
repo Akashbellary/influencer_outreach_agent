@@ -157,7 +157,7 @@ def google_login_callback():
         
         # Check if email is verified
         if not id_info.get("email_verified"):
-            return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/google-callback?success=false&error=Email+not+verified")
+            return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=false&error=Email+not+verified")
         
         email = id_info.get("email")
         name = id_info.get("name", "")
@@ -202,12 +202,12 @@ def google_login_callback():
         user_data_encoded = urllib.parse.quote(json.dumps(user_data))
         
         print(f"[v0] OAuth success - redirecting to frontend with user data: {user_data}")
-        # Redirect to the frontend callback page to process parameters
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/google-callback?success=true&user_data={user_data_encoded}")
+        # Temporarily redirect to root page since google-callback page has build issues
+        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=true&user_data={user_data_encoded}")
     except Exception as e:
         print(f"[v0] OAuth error: {str(e)}")
-        # Redirect to frontend callback page with error
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/google-callback?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}")
+        # Redirect to root page with error
+        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}")
 
 def get_google_login_url():
     """Get Google OAuth login URL"""
