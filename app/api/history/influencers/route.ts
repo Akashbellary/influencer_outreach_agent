@@ -5,7 +5,7 @@ export async function PATCH(req: NextRequest) {
     const body = await req.json()
     const { id, influencers } = body || {}
     if (!id) return NextResponse.json({ success: false, error: "id required" }, { status: 400 })
-    const res = await fetch(`${process.env.NODE_ENV === 'production' ? '/history' : 'http://127.0.0.1:8000/history'}/${encodeURIComponent(id)}/influencers`, {
+    const res = await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:8000/history' : 'http://127.0.0.1:8000/history'}/${encodeURIComponent(id)}/influencers`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ influencers: influencers || [] }),
