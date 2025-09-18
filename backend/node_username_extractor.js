@@ -27,33 +27,47 @@ async function getInstagramUsernameFromPost(page, permalinkUrl) {
 }
 
 async function main() {
+  console.error("[v0] Node.js extractor starting...");
   let input = "";
   for await (const chunk of process.stdin) input += chunk;
+  console.error(`[v0] Received input: ${input.substring(0, 100)}...`);
   let permalinks = [];
   try {
     const parsed = JSON.parse(input || "{}");
     permalinks = Array.isArray(parsed.permalinks) ? parsed.permalinks : [];
-  } catch {}
+    console.error(`[v0] Parsed ${permalinks.length} permalinks`);
+  } catch (e) {
+    console.error(`[v0] Error parsing input: ${e.message}`);
+  }
 
+  console.error("[v0] Launching Puppeteer browser...");
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-blink-features=AutomationControlled"],
   });
+  console.error("[v0] Browser launched successfully");
+  
   const page = await browser.newPage();
   await page.setUserAgent(
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
   );
   await page.setViewport({ width: 1280, height: 800 });
   await page.setExtraHTTPHeaders({ "Accept-Language": "en-US,en;q=0.9" });
+  console.error("[v0] Page configured, starting to process permalinks...");
 
-  for (const url of permalinks) {
+  for (let i = 0; i < permalinks.length; i++) {
+    const url = permalinks[i];
+    console.error(`[v0] Processing permalink ${i + 1}/${permalinks.length}: ${url}`);
     const username = await getInstagramUsernameFromPost(page, url);
+    console.error(`[v0] Extracted username: ${username || 'null'}`);
     process.stdout.write(JSON.stringify({ url, username }) + "\n");
     const delay = 2000 + Math.random() * 4000;
     await new Promise((r) => setTimeout(r, delay));
   }
 
+  console.error("[v0] All permalinks processed, closing browser...");
   await browser.close();
+  console.error("[v0] Node.js extractor completed");
 }
 
 main().catch(() => process.exit(1));

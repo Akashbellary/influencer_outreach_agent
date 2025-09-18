@@ -21,9 +21,13 @@ def _ensure_node_path() -> str:
 def _spawn_node_username_extractor(permalinks: List[str]):
     backend_dir = os.path.dirname(os.path.abspath(__file__))
     extractor_path = os.path.join(backend_dir, "node_username_extractor.js")
+    print(f"[v0] Looking for Node.js extractor at: {extractor_path}")
     if not os.path.exists(extractor_path):
         raise FileNotFoundError(f"Extractor not found at {extractor_path}")
     node = _ensure_node_path()
+    print(f"[v0] Using Node.js at: {node}")
+    print(f"[v0] Spawning Node.js process with {len(permalinks)} permalinks")
+    
     # Pass JSON array via stdin; output JSON lines per result
     proc = subprocess.Popen(
         [node, extractor_path],
@@ -34,8 +38,11 @@ def _spawn_node_username_extractor(permalinks: List[str]):
         bufsize=1,
     )
     assert proc.stdin is not None
-    proc.stdin.write(json.dumps({"permalinks": permalinks}))
+    input_data = json.dumps({"permalinks": permalinks})
+    print(f"[v0] Sending input to Node.js: {input_data[:100]}...")
+    proc.stdin.write(input_data)
     proc.stdin.close()
+    print(f"[v0] Node.js process spawned with PID: {proc.pid}")
     return proc
 
 def _load_config() -> Dict[str, Any]:
@@ -136,7 +143,10 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
         assert proc.stdout is not None
 
         print(f"[v0] Reading output from Node.js extractor...")
+        line_count = 0
         for line in proc.stdout:
+            line_count += 1
+            print(f"[v0] Node.js output line {line_count}: {line.strip()}")
             line = line.strip()
             if not line:
                 continue
@@ -165,8 +175,15 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
                     print(f"[v0] Failed to get user info for: {username}")
 
         print(f"[v0] Waiting for Node.js process to complete...")
-        proc.wait(timeout=5)
+        proc.wait(timeout=30)  # Increased timeout
         print(f"[v0] Node.js process completed. Final job status: {len(job['user_data'])} users found")
+        
+        # Check for stderr output
+        if proc.stderr:
+            stderr_output = proc.stderr.read()
+            if stderr_output:
+                print(f"[v0] Node.js stderr: {stderr_output}")
+        
         job["status"] = "completed"
     except Exception as e:
         job["status"] = "failed"
