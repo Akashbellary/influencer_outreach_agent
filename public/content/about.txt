@@ -1,0 +1,38 @@
+About Us
+
+Welcome to [Your Project Name], an innovative platform designed to bridge the gap between brands and creators.
+
+Our mission is simple:
+👉 To make it easier for businesses to connect with the right creators, and for creators to find genuine brand opportunities that align with their content and audience.
+
+Our Idea
+
+The idea started with a simple observation: while there are many creators producing amazing content, brands often struggle to find the right people to collaborate with. On the other side, creators waste time dealing with spammy offers or fake opportunities.
+
+That’s why we’re building a platform that:
+
+Uses Meta’s APIs to discover top posts and reels through targeted hashtags.
+
+Identifies and connects with the legitimate owners of these posts/reels.
+
+Offers live chat, auto chat, and auto-respond tools so creators and brands can easily communicate.
+
+Focuses on authentic, transparent, and mutually beneficial collaborations.
+
+Why Now?
+
+We’re currently at the MVP (Minimum Viable Product) stage. Some features may display dummy data until Meta’s APIs are fully available. But the foundation is laid, and the vision is clear. Once API access is approved, our platform will shift to real, live data and become fully functional.
+
+The Future
+
+We believe the future of influencer marketing should be:
+✨ Smart – powered by APIs, automation, and data-driven insights.
+✨ Fair – giving creators of all sizes equal opportunity to be discovered by brands.
+✨ Global – breaking barriers so that collaborations aren’t limited by geography.
+✨ Community-driven – building trust and long-term partnerships between businesses and creators.
+
+Our long-term vision is to become the go-to platform for influencer outreach, trusted by creators and businesses worldwide.
+
+Join Us
+
+We’re just getting started, and we’d love for you to be part of this journey. Whether you’re a creator looking for your next brand deal or a business searching for the perfect collaborator, [Your Project Name] is here to make that connection easier, smarter, and more meaningful.

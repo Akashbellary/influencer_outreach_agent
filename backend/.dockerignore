@@ -1,0 +1,28 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+node_modules/
+.npm/
+
+# Git
+.git
+.gitignore
+
+# Python envs
+env/
+venv/
+.venv/
+
+# Tests and local scripts not needed in container
+seed.py
+create_session.py
+app_temp.py
+test_instaloader.py
+test_instaloader_login.py
+funnyyy_cats_session
+
+# OS/editor
+.DS_Store
+Thumbs.db

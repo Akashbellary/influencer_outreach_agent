@@ -1,0 +1,24 @@
+{
+  "ig_user_id": "17841470988196679",
+  "app_id": "3455617774580383",
+  "app_secret": "48627274bddb6af4964425036bdc1ced",
+  "user_access_token": "EAAxG3bXu8p8BPZAyb0GLIIaKojZCVZBCghuvhWnq3efpepRSojkHrZBoZAV6ZAkMFfzYtgexCXJmJCuhSndXAqFZCmyX38Wj0ES8jISsWzFIUc29ZBe2XSDCzvkZCF8ZBhDMrdud93t5zpsEfm7U4X2c1RA2zkiKB4dxBEc0ZANcy2rtT9XNVUuxws09GVkj6BHtvKX",
+  "long_access_token": "EAAxG3bXu8p8BPXZCv07KLihxeKUFMEVwQdI92X1z2ZCNTsH234xIexZCxiTMsJS5Ef7X0InAvCV5ykZCdVgYc9ZBMn16HcTy4wjKMZAj8DNqUh0wTmYoQWBLCDD616bhck7dDJDDZBVZBeb0ipvid5An9x3BkaDKLRw9DvNR32EBJyc5LquaHamU7DjYixb7",
+  "youtube_api": "AIzaSyA9_dQGM1UrOn15pHlCztZ_-XEozROIxTk",
+  "instagram_access_token": "EAAxG3bXu8p8BPQQSXgFzOIQ09ZBqyaOJnLzKhaH164pnJ88FdpZChGXCoQkebypGbT2la66UoAmrtgHyKHoTpQjgQhwH6CAZB2nB4j7vYsZBkcwmyeZANuLaMoDe1cCNdhRVl4FbZBSxI6ZAQleCprZBVHZAHBL5zrabn4F5d5gGiiFEvaPdNIFK1gaa9Gu6H",
+  "username": "funnyyy_cats",
+  "app_secret_key": "your-secret-key-change-this-in-production",
+  "mongodb_uri": "mongodb+srv://ashsec:AshsecDBPass@emailclassifier.iqtxets.mongodb.net/",
+  "mongodb_db": "CampaignIO_DB",
+  "google_client_config": {
+    "web": {
+      "client_id": "1053748567329-aa2phpivos1uoatmjik7se69fepcd3c9.apps.googleusercontent.com",
+      "project_id": "xenon-point-436803-v1",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": ["http://localhost:8000/google-callback"]
+    }
+  }
+}

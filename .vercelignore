@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+
+# Ignore unrelated projects at repo root
+../backend
+../fooocus
+../influenceroutreachagent
+../influenceroutreachagent3 (3)
+../test
+
+# Archives and misc
+*.zip
+*.tar.gz
+*.ipynb
+
+# Local env
+.env
+.env.*
