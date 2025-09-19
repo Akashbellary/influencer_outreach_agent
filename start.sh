@@ -4,6 +4,10 @@ set -euo pipefail
 # Start backend on 0.0.0.0:8000
 cd /app/backend
 export NODE_ENV="production"
+# Set Puppeteer environment variables
+export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+export PUPPETEER_SKIP_DOWNLOAD=true
+
 if command -v gunicorn >/dev/null 2>&1; then
   gunicorn app:app -b 0.0.0.0:8000 &
 else

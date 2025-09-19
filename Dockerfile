@@ -37,8 +37,8 @@ COPY . .
 # Install frontend deps and build Next.js
 RUN npm config set legacy-peer-deps true \
     && npm install --no-audit --no-fund \
-    && npm run build
-
+    # Ensure Puppeteer can find Chromium
+    && npx puppeteer browsers install chrome
 ENV PORT=3000
 EXPOSE 3000
 
@@ -47,4 +47,5 @@ COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
 CMD ["/app/start.sh"]
+
 

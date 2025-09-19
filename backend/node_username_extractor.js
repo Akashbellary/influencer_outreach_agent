@@ -6,8 +6,26 @@ puppeteer.use(StealthPlugin());
 // Enhanced browser launch options for Render deployment
 const getBrowserOptions = () => {
   const isProduction = process.env.NODE_ENV === 'production';
-  
-  return {
+
+  // Try to find Chromium in common locations
+  let executablePath = undefined;
+  if (isProduction) {
+    const possiblePaths = [
+      '/usr/bin/chromium-browser',
+      '/usr/bin/chromium',
+      '/usr/bin/google-chrome',
+      '/usr/bin/google-chrome-stable'
+    ];
+
+    for (const path of possiblePaths) {
+      if (require('fs').existsSync(path)) {
+        executablePath = path;
+        break;
+      }
+    }
+  }
+
+  const options = {
     headless: true,
     args: [
       '--no-sandbox',
@@ -34,32 +52,36 @@ const getBrowserOptions = () => {
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     ],
     timeout: isProduction ? 60000 : 30000,
-    protocolTimeout: isProduction ? 60000 : 30000,
-    ...(isProduction && {
-      executablePath: '/usr/bin/chromium-browser'
-    })
+    protocolTimeout: isProduction ? 60000 : 30000
   };
+
+  // Only add executablePath if we found one
+  if (executablePath) {
+    options.executablePath = executablePath;
+  }
+
+  return options;
 };
 
 async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) {
   const maxRetries = 2;
-  
+
   try {
     console.error(`[v0] Navigating to: ${permalinkUrl} (attempt ${retryCount + 1}/${maxRetries + 1})`);
-    
+
     // Add random delay to avoid rate limiting
     if (retryCount > 0) {
       const delay = Math.random() * 2000 + 1000; // 1-3 seconds
       console.error(`[v0] Waiting ${delay}ms before retry...`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
-    
-    await page.goto(permalinkUrl, { 
-      waitUntil: "domcontentloaded", 
-      timeout: 30000 
+
+    await page.goto(permalinkUrl, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000
     });
     console.error(`[v0] Page loaded, waiting for profile picture...`);
-    
+
     // Try multiple selectors for profile picture
     const selectors = [
       'div[role="dialog"] img[alt*="profile picture"]',
@@ -67,7 +89,7 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
       'img[alt*="profile picture"]',
       'a[href*="/"] img[alt*="profile picture"]'
     ];
-    
+
     let imgHandle = null;
     for (const selector of selectors) {
       try {
@@ -81,7 +103,7 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
         console.error(`[v0] Selector failed: ${selector} - ${e.message}`);
       }
     }
-    
+
     if (imgHandle) {
       const altText = await imgHandle.evaluate((el) => el.alt);
       console.error(`[v0] Profile picture alt text: ${altText}`);
@@ -91,32 +113,32 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
         return match[1];
       }
     }
-    
+
     console.error(`[v0] No profile picture found, checking page content...`);
     const pageContent = await page.content();
     console.error(`[v0] Page title: ${await page.title()}`);
     console.error(`[v0] Page URL: ${page.url()}`);
-    
+
     // Check if we're on a login page or blocked
     if (pageContent.includes('login') || pageContent.includes('Login') || pageContent.includes('log in')) {
       console.error(`[v0] Detected login page - Instagram is blocking us`);
       return null;
     }
-    
+
     // Try to find any username in the page
     const usernameMatch = pageContent.match(/@(\w+)/);
     if (usernameMatch) {
       console.error(`[v0] Found username in page content: ${usernameMatch[1]}`);
       return usernameMatch[1];
     }
-    
+
   } catch (e) {
     console.error(`[v0] Error in getInstagramUsernameFromPost: ${e.message}`);
-    
+
     // Retry logic for network errors or timeouts
     if (retryCount < maxRetries && (
-      e.message.includes('timeout') || 
-      e.message.includes('net::') || 
+      e.message.includes('timeout') ||
+      e.message.includes('net::') ||
       e.message.includes('ERR_') ||
       e.message.includes('Navigation timeout')
     )) {
@@ -151,13 +173,13 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
 
 async function main() {
   console.error("[v0] Node.js extractor starting...");
-  
+
   // Set a global timeout to prevent hanging
   const timeout = setTimeout(() => {
     console.error("[v0] Process timeout reached, exiting...");
     process.exit(1);
   }, 300000); // 5 minutes timeout
-  
+
   let input = "";
   for await (const chunk of process.stdin) input += chunk;
   console.error(`[v0] Received input: ${input.substring(0, 100)}...`);
@@ -173,7 +195,7 @@ async function main() {
   console.error("[v0] Launching Puppeteer browser...");
   const browserOptions = getBrowserOptions();
   console.error(`[v0] Browser options: ${JSON.stringify(browserOptions, null, 2)}`);
-  
+
   let browser;
   try {
     browser = await puppeteer.launch(browserOptions);
@@ -181,29 +203,39 @@ async function main() {
   } catch (error) {
     console.error(`[v0] Browser launch failed: ${error.message}`);
     console.error(`[v0] Browser launch error details: ${error.stack}`);
-    process.exit(1);
+    // Try launching without executablePath as fallback
+    try {
+      console.error("[v0] Trying to launch browser without executablePath...");
+      const fallbackOptions = { ...browserOptions };
+      delete fallbackOptions.executablePath;
+      browser = await puppeteer.launch(fallbackOptions);
+      console.error("[v0] Browser launched successfully with fallback options");
+    } catch (fallbackError) {
+      console.error(`[v0] Fallback browser launch also failed: ${fallbackError.message}`);
+      process.exit(1);
+    }
   }
-  
+
   let page;
   try {
     console.error("[v0] Creating new page...");
     page = await browser.newPage();
     console.error("[v0] Page created successfully");
-    
+
     console.error("[v0] Setting user agent...");
     await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     );
     console.error("[v0] User agent set successfully");
-    
+
     console.error("[v0] Setting viewport...");
     await page.setViewport({ width: 1280, height: 800 });
     console.error("[v0] Viewport set successfully");
-    
+
     console.error("[v0] Setting HTTP headers...");
     await page.setExtraHTTPHeaders({ "Accept-Language": "en-US,en;q=0.9" });
     console.error("[v0] HTTP headers set successfully");
-    
+
     console.error("[v0] Page configured, starting to process permalinks...");
   } catch (error) {
     console.error(`[v0] Page setup failed: ${error.message}`);
@@ -215,7 +247,7 @@ async function main() {
   for (let i = 0; i < permalinks.length; i++) {
     const url = permalinks[i];
     console.error(`[v0] Processing permalink ${i + 1}/${permalinks.length}: ${url}`);
-    
+
     try {
       const username = await getInstagramUsernameFromPost(page, url);
       console.error(`[v0] Extracted username: ${username || 'null'}`);
@@ -225,7 +257,7 @@ async function main() {
       console.error(`[v0] Error details: ${error.stack}`);
       process.stdout.write(JSON.stringify({ url, username: null }) + "\n");
     }
-    
+
     const delay = 2000 + Math.random() * 4000;
     console.error(`[v0] Waiting ${delay}ms before next permalink...`);
     await new Promise((r) => setTimeout(r, delay));
@@ -234,7 +266,7 @@ async function main() {
   console.error("[v0] All permalinks processed, closing browser...");
   await browser.close();
   console.error("[v0] Node.js extractor completed");
-  
+
   // Clear the timeout since we completed successfully
   clearTimeout(timeout);
 }
@@ -244,5 +276,3 @@ main().catch((error) => {
   console.error(`[v0] Main function error details: ${error.stack}`);
   process.exit(1);
 });
-
-
