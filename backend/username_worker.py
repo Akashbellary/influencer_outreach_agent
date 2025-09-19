@@ -8,6 +8,7 @@ import uuid
 from typing import List, Dict, Any, Optional
 from flask import Blueprint, request, jsonify
 import requests
+import queue
 
 # In-memory job store. For production, switch to Redis or a DB.
 _jobs: Dict[str, Dict[str, Any]] = {}
@@ -149,41 +150,102 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
                 print(f"[v0] Attempt {attempt + 1}/{max_retries + 1} - Spawning Node.js extractor...")
                 proc = _spawn_node_username_extractor(permalinks)
                 assert proc.stdout is not None
-                
+
+                # Start a background thread to continuously stream stderr
+                def _stream_stderr(p):
+                    try:
+                        if p.stderr is None:
+                            return
+                        line_no = 0
+                        for err_line in p.stderr:
+                            line_no += 1
+                            msg = err_line.rstrip("\n")
+                            if msg:
+                                print(f"[v0] Node.js stderr[{line_no}]: {msg}")
+                    except Exception as _e:
+                        print(f"[v0] Error reading Node.js stderr: {_e}")
+
+                threading.Thread(target=_stream_stderr, args=(proc,), daemon=True).start()
+
                 print(f"[v0] Reading output from Node.js extractor...")
                 line_count = 0
-                for line in proc.stdout:
-                    line_count += 1
-                    print(f"[v0] Node.js output line {line_count}: {line.strip()}")
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        payload = json.loads(line)
-                        print(f"[v0] Received from Node.js: {payload}")
-                    except Exception as e:
-                        print(f"[v0] Failed to parse Node.js output: {line}, error: {e}")
-                        continue
+                idle_timeout_sec = 90  # kill if no stdout for 90s
+                last_activity = time.time()
 
-                    url = payload.get("url")
-                    username = payload.get("username")
-                    if username:
-                        print(f"[v0] Found username: {username} from URL: {url}")
-                        # Deduplicate
-                        if username in job["usernames"]:
-                            print(f"[v0] Username {username} already processed, skipping")
+                # Cross-platform stdout reader using a background thread and Queue
+                q: "queue.Queue[str]" = queue.Queue()
+
+                def _read_stdout(p, out_q):
+                    try:
+                        for raw in p.stdout:  # type: ignore[attr-defined]
+                            out_q.put(raw)
+                    except Exception as _e:
+                        print(f"[v0] Error reading Node.js stdout: {_e}")
+
+                reader_t = threading.Thread(target=_read_stdout, args=(proc, q), daemon=True)
+                reader_t.start()
+
+                while True:
+                    now = time.time()
+                    try:
+                        line = q.get(timeout=1.0)
+                        if line is None:  # sentinel (not used currently)
+                            break
+                        last_activity = now
+                        line_count += 1
+                        print(f"[v0] Node.js output line {line_count}: {line.strip()}")
+                        line = line.strip()
+                        if not line:
                             continue
-                        job["usernames"].append(username)
-                        print(f"[v0] Getting user info for: {username}")
-                        info = _get_user_info(ig_user_id, access_token, username)
-                        if info and isinstance(info, dict) and info.get("business_discovery"):
-                            print(f"[v0] Got user info for {username}: {info['business_discovery'].get('username', 'N/A')}")
-                            job["user_data"].append(info["business_discovery"])
-                        else:
-                            print(f"[v0] Failed to get user info for: {username}")
+                        try:
+                            payload = json.loads(line)
+                            print(f"[v0] Received from Node.js: {payload}")
+                        except Exception as e:
+                            print(f"[v0] Failed to parse Node.js output: {line}, error: {e}")
+                            continue
+
+                        url = payload.get("url")
+                        username = payload.get("username")
+                        if username:
+                            print(f"[v0] Found username: {username} from URL: {url}")
+                            # Deduplicate
+                            if username in job["usernames"]:
+                                print(f"[v0] Username {username} already processed, skipping")
+                                continue
+                            job["usernames"].append(username)
+                            print(f"[v0] Getting user info for: {username}")
+                            info = _get_user_info(ig_user_id, access_token, username)
+                            if info and isinstance(info, dict) and info.get("business_discovery"):
+                                print(f"[v0] Got user info for {username}: {info['business_discovery'].get('username', 'N/A')}")
+                                job["user_data"].append(info["business_discovery"])
+                            else:
+                                print(f"[v0] Failed to get user info for: {username}")
+                    except queue.Empty:
+                        # No data this tick; check idle timeout
+                        if now - last_activity > idle_timeout_sec:
+                            print(f"[v0] Node.js stdout idle for > {idle_timeout_sec}s, terminating process...")
+                            try:
+                                proc.terminate()
+                            except Exception:
+                                pass
+                            try:
+                                proc.kill()
+                            except Exception:
+                                pass
+                            break
+                        # If process already exited and queue is empty, break
+                        if proc.poll() is not None and q.empty():
+                            break
 
                 print(f"[v0] Waiting for Node.js process to complete...")
-                proc.wait(timeout=30)  # Increased timeout
+                try:
+                    proc.wait(timeout=30)
+                except Exception:
+                    print("[v0] Node.js did not exit in time, killing...")
+                    try:
+                        proc.kill()
+                    except Exception:
+                        pass
                 print(f"[v0] Node.js process completed. Final job status: {len(job['user_data'])} users found")
                 success = True
                 break
