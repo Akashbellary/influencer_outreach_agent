@@ -29,7 +29,6 @@ const getBrowserOptions = () => {
       '--disable-extensions',
       '--disable-plugins',
       '--disable-images',
-      '--disable-javascript',
       '--disable-web-security',
       '--disable-features=VizDisplayCompositor',
       '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -152,6 +151,13 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
 
 async function main() {
   console.error("[v0] Node.js extractor starting...");
+  
+  // Set a global timeout to prevent hanging
+  const timeout = setTimeout(() => {
+    console.error("[v0] Process timeout reached, exiting...");
+    process.exit(1);
+  }, 300000); // 5 minutes timeout
+  
   let input = "";
   for await (const chunk of process.stdin) input += chunk;
   console.error(`[v0] Received input: ${input.substring(0, 100)}...`);
@@ -168,32 +174,75 @@ async function main() {
   const browserOptions = getBrowserOptions();
   console.error(`[v0] Browser options: ${JSON.stringify(browserOptions, null, 2)}`);
   
-  const browser = await puppeteer.launch(browserOptions);
-  console.error("[v0] Browser launched successfully");
+  let browser;
+  try {
+    browser = await puppeteer.launch(browserOptions);
+    console.error("[v0] Browser launched successfully");
+  } catch (error) {
+    console.error(`[v0] Browser launch failed: ${error.message}`);
+    console.error(`[v0] Browser launch error details: ${error.stack}`);
+    process.exit(1);
+  }
   
-  const page = await browser.newPage();
-  await page.setUserAgent(
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-  );
-  await page.setViewport({ width: 1280, height: 800 });
-  await page.setExtraHTTPHeaders({ "Accept-Language": "en-US,en;q=0.9" });
-  console.error("[v0] Page configured, starting to process permalinks...");
+  let page;
+  try {
+    console.error("[v0] Creating new page...");
+    page = await browser.newPage();
+    console.error("[v0] Page created successfully");
+    
+    console.error("[v0] Setting user agent...");
+    await page.setUserAgent(
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+    );
+    console.error("[v0] User agent set successfully");
+    
+    console.error("[v0] Setting viewport...");
+    await page.setViewport({ width: 1280, height: 800 });
+    console.error("[v0] Viewport set successfully");
+    
+    console.error("[v0] Setting HTTP headers...");
+    await page.setExtraHTTPHeaders({ "Accept-Language": "en-US,en;q=0.9" });
+    console.error("[v0] HTTP headers set successfully");
+    
+    console.error("[v0] Page configured, starting to process permalinks...");
+  } catch (error) {
+    console.error(`[v0] Page setup failed: ${error.message}`);
+    console.error(`[v0] Page setup error details: ${error.stack}`);
+    await browser.close();
+    process.exit(1);
+  }
 
   for (let i = 0; i < permalinks.length; i++) {
     const url = permalinks[i];
     console.error(`[v0] Processing permalink ${i + 1}/${permalinks.length}: ${url}`);
-    const username = await getInstagramUsernameFromPost(page, url);
-    console.error(`[v0] Extracted username: ${username || 'null'}`);
-    process.stdout.write(JSON.stringify({ url, username }) + "\n");
+    
+    try {
+      const username = await getInstagramUsernameFromPost(page, url);
+      console.error(`[v0] Extracted username: ${username || 'null'}`);
+      process.stdout.write(JSON.stringify({ url, username }) + "\n");
+    } catch (error) {
+      console.error(`[v0] Error processing permalink ${url}: ${error.message}`);
+      console.error(`[v0] Error details: ${error.stack}`);
+      process.stdout.write(JSON.stringify({ url, username: null }) + "\n");
+    }
+    
     const delay = 2000 + Math.random() * 4000;
+    console.error(`[v0] Waiting ${delay}ms before next permalink...`);
     await new Promise((r) => setTimeout(r, delay));
   }
 
   console.error("[v0] All permalinks processed, closing browser...");
   await browser.close();
   console.error("[v0] Node.js extractor completed");
+  
+  // Clear the timeout since we completed successfully
+  clearTimeout(timeout);
 }
 
-main().catch(() => process.exit(1));
+main().catch((error) => {
+  console.error(`[v0] Main function error: ${error.message}`);
+  console.error(`[v0] Main function error details: ${error.stack}`);
+  process.exit(1);
+});
 
 
