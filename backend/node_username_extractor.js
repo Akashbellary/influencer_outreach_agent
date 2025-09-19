@@ -3,10 +3,62 @@ const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
-async function getInstagramUsernameFromPost(page, permalinkUrl) {
+// Enhanced browser launch options for Render deployment
+const getBrowserOptions = () => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
+  return {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu',
+      '--disable-background-timer-throttling',
+      '--disable-backgrounding-occluded-windows',
+      '--disable-renderer-backgrounding',
+      '--disable-features=TranslateUI',
+      '--disable-ipc-flooding-protection',
+      '--disable-hang-monitor',
+      '--disable-prompt-on-repost',
+      '--disable-sync',
+      '--disable-default-apps',
+      '--disable-extensions',
+      '--disable-plugins',
+      '--disable-images',
+      '--disable-javascript',
+      '--disable-web-security',
+      '--disable-features=VizDisplayCompositor',
+      '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    ],
+    timeout: isProduction ? 60000 : 30000,
+    protocolTimeout: isProduction ? 60000 : 30000,
+    ...(isProduction && {
+      executablePath: '/usr/bin/chromium-browser'
+    })
+  };
+};
+
+async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) {
+  const maxRetries = 2;
+  
   try {
-    console.error(`[v0] Navigating to: ${permalinkUrl}`);
-    await page.goto(permalinkUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
+    console.error(`[v0] Navigating to: ${permalinkUrl} (attempt ${retryCount + 1}/${maxRetries + 1})`);
+    
+    // Add random delay to avoid rate limiting
+    if (retryCount > 0) {
+      const delay = Math.random() * 2000 + 1000; // 1-3 seconds
+      console.error(`[v0] Waiting ${delay}ms before retry...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    
+    await page.goto(permalinkUrl, { 
+      waitUntil: "domcontentloaded", 
+      timeout: 30000 
+    });
     console.error(`[v0] Page loaded, waiting for profile picture...`);
     
     // Try multiple selectors for profile picture
@@ -61,6 +113,17 @@ async function getInstagramUsernameFromPost(page, permalinkUrl) {
     
   } catch (e) {
     console.error(`[v0] Error in getInstagramUsernameFromPost: ${e.message}`);
+    
+    // Retry logic for network errors or timeouts
+    if (retryCount < maxRetries && (
+      e.message.includes('timeout') || 
+      e.message.includes('net::') || 
+      e.message.includes('ERR_') ||
+      e.message.includes('Navigation timeout')
+    )) {
+      console.error(`[v0] Retrying due to network error (attempt ${retryCount + 1}/${maxRetries})`);
+      return await getInstagramUsernameFromPost(page, permalinkUrl, retryCount + 1);
+    }
   }
 
   // Fallback: try to extract from URL
@@ -102,21 +165,10 @@ async function main() {
   }
 
   console.error("[v0] Launching Puppeteer browser...");
-  const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium',
-    args: [
-      "--no-sandbox", 
-      "--disable-setuid-sandbox", 
-      "--disable-blink-features=AutomationControlled",
-      "--disable-dev-shm-usage",
-      "--disable-accelerated-2d-canvas",
-      "--no-first-run",
-      "--no-zygote",
-      "--single-process",
-      "--disable-gpu"
-    ],
-  });
+  const browserOptions = getBrowserOptions();
+  console.error(`[v0] Browser options: ${JSON.stringify(browserOptions, null, 2)}`);
+  
+  const browser = await puppeteer.launch(browserOptions);
   console.error("[v0] Browser launched successfully");
   
   const page = await browser.newPage();

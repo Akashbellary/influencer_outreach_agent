@@ -139,44 +139,65 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
             return
 
         print(f"[v0] Spawning Node.js username extractor for {len(permalinks)} permalinks")
-        proc = _spawn_node_username_extractor(permalinks)
-        assert proc.stdout is not None
-
-        print(f"[v0] Reading output from Node.js extractor...")
-        line_count = 0
-        for line in proc.stdout:
-            line_count += 1
-            print(f"[v0] Node.js output line {line_count}: {line.strip()}")
-            line = line.strip()
-            if not line:
-                continue
+        
+        # Retry logic for Node.js extractor
+        max_retries = 2
+        success = False
+        
+        for attempt in range(max_retries + 1):
             try:
-                payload = json.loads(line)
-                print(f"[v0] Received from Node.js: {payload}")
+                print(f"[v0] Attempt {attempt + 1}/{max_retries + 1} - Spawning Node.js extractor...")
+                proc = _spawn_node_username_extractor(permalinks)
+                assert proc.stdout is not None
+                
+                print(f"[v0] Reading output from Node.js extractor...")
+                line_count = 0
+                for line in proc.stdout:
+                    line_count += 1
+                    print(f"[v0] Node.js output line {line_count}: {line.strip()}")
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        payload = json.loads(line)
+                        print(f"[v0] Received from Node.js: {payload}")
+                    except Exception as e:
+                        print(f"[v0] Failed to parse Node.js output: {line}, error: {e}")
+                        continue
+
+                    url = payload.get("url")
+                    username = payload.get("username")
+                    if username:
+                        print(f"[v0] Found username: {username} from URL: {url}")
+                        # Deduplicate
+                        if username in job["usernames"]:
+                            print(f"[v0] Username {username} already processed, skipping")
+                            continue
+                        job["usernames"].append(username)
+                        print(f"[v0] Getting user info for: {username}")
+                        info = _get_user_info(ig_user_id, access_token, username)
+                        if info and isinstance(info, dict) and info.get("business_discovery"):
+                            print(f"[v0] Got user info for {username}: {info['business_discovery'].get('username', 'N/A')}")
+                            job["user_data"].append(info["business_discovery"])
+                        else:
+                            print(f"[v0] Failed to get user info for: {username}")
+
+                print(f"[v0] Waiting for Node.js process to complete...")
+                proc.wait(timeout=30)  # Increased timeout
+                print(f"[v0] Node.js process completed. Final job status: {len(job['user_data'])} users found")
+                success = True
+                break
+                
             except Exception as e:
-                print(f"[v0] Failed to parse Node.js output: {line}, error: {e}")
-                continue
-
-            url = payload.get("url")
-            username = payload.get("username")
-            if username:
-                print(f"[v0] Found username: {username} from URL: {url}")
-                # Deduplicate
-                if username in job["usernames"]:
-                    print(f"[v0] Username {username} already processed, skipping")
-                    continue
-                job["usernames"].append(username)
-                print(f"[v0] Getting user info for: {username}")
-                info = _get_user_info(ig_user_id, access_token, username)
-                if info and isinstance(info, dict) and info.get("business_discovery"):
-                    print(f"[v0] Got user info for {username}: {info['business_discovery'].get('username', 'N/A')}")
-                    job["user_data"].append(info["business_discovery"])
+                print(f"[v0] Attempt {attempt + 1} failed: {e}")
+                if attempt < max_retries:
+                    print(f"[v0] Retrying in 5 seconds...")
+                    time.sleep(5)
                 else:
-                    print(f"[v0] Failed to get user info for: {username}")
-
-        print(f"[v0] Waiting for Node.js process to complete...")
-        proc.wait(timeout=30)  # Increased timeout
-        print(f"[v0] Node.js process completed. Final job status: {len(job['user_data'])} users found")
+                    print(f"[v0] All attempts failed, continuing with partial results")
+        
+        if not success:
+            print(f"[v0] Node.js extractor failed after {max_retries + 1} attempts")
         
         # Check for stderr output
         if proc.stderr:
