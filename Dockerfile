@@ -26,19 +26,27 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 
 WORKDIR /app
 
+# Copy package files first for better caching
+COPY package.json pnpm-lock.yaml* .npmrc* ./
+
 # Install backend Python deps
 COPY backend/requirements.txt backend/requirements.txt
 RUN pip install --no-cache-dir -r backend/requirements.txt \
     && pip install --no-cache-dir gunicorn
 
+# Install frontend deps
+RUN npm config set legacy-peer-deps true \
+    && npm install --no-audit --no-fund
+
 # Copy full app code
 COPY . .
 
-# Install frontend deps and build Next.js
-RUN npm config set legacy-peer-deps true \
-    && npm install --no-audit --no-fund \
-    # Ensure Puppeteer can find Chromium
-    && npx puppeteer browsers install chrome
+# Build Next.js app
+RUN npm run build
+
+# Install Puppeteer browsers
+RUN npx puppeteer browsers install chrome
+
 ENV PORT=3000
 EXPOSE 3000
 
@@ -47,5 +55,26 @@ COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
 CMD ["/app/start.sh"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
