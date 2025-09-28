@@ -50,3 +50,5 @@ backend/config.json
 .render/
 
 
+backend/chrome/linux-142.0.7440.0/chrome-linux64/chrome
+backend/chrome/linux-142.0.7440.0/chrome-linux64/chrome

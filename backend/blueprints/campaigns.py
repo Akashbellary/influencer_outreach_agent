@@ -37,7 +37,6 @@ def get_campaigns():
         return jsonify({"success": False, "message": "User not authenticated"}), 401
     user_id = str(user.get('_id'))
     campaigns = list(campaigns_collection.find({"user_id": user_id}))
-    campaigns = list(campaigns_collection.find())
     for campaign in campaigns:
         campaign['_id'] = str(campaign['_id'])
     return jsonify(campaigns), 200

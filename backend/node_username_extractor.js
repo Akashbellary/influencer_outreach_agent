@@ -30,26 +30,28 @@ puppeteer.use(StealthPlugin({
 const getBrowserOptions = () => {
   const isProduction = process.env.NODE_ENV === 'production';
 
-  // Extended Chrome executable paths for Render
+  // Extended Chrome executable paths for different environments
   let executablePath = undefined;
-  if (isProduction) {
-    const possiblePaths = [
-      process.env.CHROMIUM_PATH,
-      process.env.GOOGLE_CHROME_SHIM,
-      '/usr/bin/chromium-browser',
-      '/usr/bin/chromium',
-      '/usr/bin/google-chrome',
-      '/usr/bin/google-chrome-stable',
-      '/usr/bin/google-chrome-beta',
-      '/snap/chromium/current/usr/lib/chromium-browser/chrome'
-    ];
+  const possiblePaths = [
+    process.env.CHROMIUM_PATH,
+    process.env.GOOGLE_CHROME_SHIM,
+    process.env.PUPPETEER_EXECUTABLE_PATH,
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium',
+    '/usr/bin/google-chrome',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/google-chrome-beta',
+    '/snap/chromium/current/usr/lib/chromium-browser/chrome',
+    // Codespaces/GitHub paths
+    '/usr/bin/google-chrome-unstable',
+    '/opt/google/chrome/chrome'
+  ];
 
-    for (const path of possiblePaths) {
-      if (require('fs').existsSync(path)) {
-        executablePath = path;
-        console.error(`[v0] Using Chrome at: ${path}`);
-        break;
-      }
+  for (const path of possiblePaths) {
+    if (path && require('fs').existsSync(path)) {
+      executablePath = path;
+      console.error(`[v0] Using Chrome at: ${path}`);
+      break;
     }
   }
 
@@ -126,9 +128,12 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
   try {
     console.error(`[v0] Processing: ${permalinkUrl} (attempt ${retryCount + 1})`);
 
-    // Progressive delay for retries
+    // Progressive delay for retries with human-like randomization
     if (retryCount > 0) {
-      const delay = (retryCount * 3000) + (Math.random() * 2000); // 3-5s, 6-8s, 9-11s
+      const baseDelay = retryCount * 5000; // 5s, 10s, 15s
+      const randomDelay = Math.random() * 8000 + 2000; // 2-10s random
+      const jitterDelay = Math.random() * 1000; // 0-1s jitter
+      const delay = baseDelay + randomDelay + jitterDelay;
       console.error(`[v0] Retry delay: ${Math.round(delay)}ms`);
       await new Promise(resolve => setTimeout(resolve, delay));
     }
@@ -161,17 +166,53 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
       );
     });
 
+    // Pre-navigation with referrer simulation
+    if (Math.random() < 0.7) {
+      // Sometimes navigate via Google first (common user behavior)
+      const googleSearch = `https://www.google.com/search?q=instagram+${extractUsernameFromUrl(permalinkUrl) || 'post'}`;
+      try {
+        await page.goto(googleSearch, { timeout: 15000, waitUntil: 'networkidle2' });
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+      } catch (e) {
+        console.error(`[v0] Google referrer failed: ${e.message}`);
+      }
+    }
+
     // Navigate with enhanced wait conditions
     const response = await page.goto(permalinkUrl, {
-      waitUntil: ['domcontentloaded', 'networkidle0'],
-      timeout: 45000
+      waitUntil: ['domcontentloaded', 'networkidle2'],
+      timeout: 60000,
+      referer: Math.random() < 0.5 ? 'https://www.google.com/' : 'https://instagram.com/'
     });
 
     console.error(`[v0] Response status: ${response?.status()}`);
     console.error(`[v0] Final URL: ${page.url()}`);
 
-    // Wait for page to fully render
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    // Wait for page to fully render and handle login popup (like Selenium)
+    const renderWait = 4000 + Math.random() * 4000; // 4-8 seconds random
+    console.error(`[v0] Waiting ${Math.round(renderWait)}ms for page render and popup...`);
+    await new Promise(resolve => setTimeout(resolve, renderWait));
+    
+    // Check for login/signup dialog popup (common Instagram behavior)
+    try {
+      const loginDialog = await page.$('div[role="dialog"]');
+      if (loginDialog) {
+        console.error(`[v0] Login/signup dialog detected - proceeding with extraction`);
+        // Don't close the dialog - extract from it like Selenium does
+      }
+    } catch (e) {
+      console.error(`[v0] No dialog popup detected`);
+    }
+    
+    // Simulate human scrolling behavior
+    await page.evaluate(() => {
+      const scrollAmount = Math.random() * 500 + 100; // 100-600px scroll
+      window.scrollTo({
+        top: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    await new Promise(resolve => setTimeout(resolve, 1200 + Math.random() * 1800)); // 1.2-3s
 
     // Check for redirect to login
     const currentUrl = page.url();
@@ -190,34 +231,77 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
 
     // Enhanced selector strategies with better error handling
     const extractionStrategies = [
-      // Strategy 1: Profile picture alt text
+      // Strategy 1: Profile picture alt text (Primary - matches Selenium approach)
       async () => {
+        console.error(`[v0] Strategy 1: Profile picture alt text extraction`);
+        
+        // Primary selector - dialog popup (matches Selenium exactly)
+        const dialogSelector = 'div[role="dialog"] img[contains(@alt, "profile picture")]';
+        const cssDialogSelector = 'div[role="dialog"] img[alt*="profile picture"]';
+        
+        // Fallback selectors
         const selectors = [
+          cssDialogSelector, // Primary - matches Selenium
           'article header img[alt*="profile picture"]',
-          'div[role="dialog"] img[alt*="profile picture"]',
           'img[alt*="profile picture"]',
           'header img[data-testid*="user-avatar"]',
-          'a[href^="/"] img[alt*="profile picture"]'
+          'a[href^="/"] img[alt*="profile picture"]',
+          '[role="main"] img[alt*="profile picture"]'
         ];
 
-        for (const selector of selectors) {
+        for (let i = 0; i < selectors.length; i++) {
+          const selector = selectors[i];
           try {
-            console.error(`[v0] Trying selector: ${selector}`);
-            await page.waitForSelector(selector, { timeout: 8000 });
-            const element = await page.$(selector);
-
+            console.error(`[v0] Trying selector ${i + 1}: ${selector}`);
+            
+            // Wait for selector with longer timeout for dialog
+            const timeout = i === 0 ? 15000 : 8000; // Longer for dialog
+            await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1200));
+            
+            const element = await page.waitForSelector(selector, { timeout });
+            
             if (element) {
-              const altText = await element.evaluate(el => el.alt || '');
+              // Simulate human-like mouse movement to element
+              try {
+                const box = await element.boundingBox();
+                if (box) {
+                  await page.mouse.move(
+                    box.x + (box.width * 0.3) + Math.random() * (box.width * 0.4), 
+                    box.y + (box.height * 0.3) + Math.random() * (box.height * 0.4)
+                  );
+                  await new Promise(resolve => setTimeout(resolve, 300 + Math.random() * 500));
+                }
+              } catch (moveError) {
+                console.error(`[v0] Mouse move failed: ${moveError.message}`);
+              }
+              
+              const altText = await element.evaluate(el => el.alt || el.getAttribute('alt') || '');
               console.error(`[v0] Alt text found: "${altText}"`);
 
-              const match = altText.match(/([\w.]+)'s profile picture/i);
-              if (match) {
-                console.error(`[v0] Username from alt text: ${match[1]}`);
-                return match[1];
+              // Enhanced regex to match Selenium pattern exactly
+              const patterns = [
+                /(\S+)'s profile picture/i,
+                /^([^']+)'s profile picture/i,
+                /@([a-zA-Z0-9_.]+)'s profile picture/i,
+                /([a-zA-Z0-9_.]+)'s\s+profile\s+picture/i
+              ];
+
+              for (const pattern of patterns) {
+                const match = altText.match(pattern);
+                if (match && match[1]) {
+                  const username = match[1].replace('@', '').trim();
+                  if (username && username.length > 0 && username.length < 30 && 
+                      !username.includes(' ') && /^[a-zA-Z0-9_.]+$/.test(username)) {
+                    console.error(`[v0] ✓ Username from alt text: ${username}`);
+                    return username;
+                  }
+                }
               }
             }
           } catch (e) {
-            console.error(`[v0] Selector ${selector} failed: ${e.message}`);
+            console.error(`[v0] Selector ${i + 1} failed: ${e.message}`);
+            // Random delay before trying next selector
+            await new Promise(resolve => setTimeout(resolve, 400 + Math.random() * 800));
             continue;
           }
         }
@@ -251,38 +335,73 @@ async function getInstagramUsernameFromPost(page, permalinkUrl, retryCount = 0) 
         return null;
       },
 
-      // Strategy 3: Text content analysis
+      // Strategy 3: Enhanced DOM traversal (matches Selenium div traversal approach)
       async () => {
+        console.error(`[v0] Strategy 3: Enhanced DOM traversal`);
         try {
-          const textContent = await page.evaluate(() => {
-            // Look for username patterns in various elements
-            const selectors = ['article', 'main', 'body'];
-            for (const sel of selectors) {
-              const element = document.querySelector(sel);
-              if (element) return element.textContent || '';
-            }
-            return '';
+          // Get all profile images and their parent containers
+          const profileData = await page.evaluate(() => {
+            const results = [];
+            
+            // Look for profile pictures in various containers
+            const selectors = [
+              'img[alt*="profile picture"]',
+              'img[alt*="Profile picture"]', 
+              'img[src*="profile"]',
+              '[role="dialog"] img',
+              'article img',
+              'header img'
+            ];
+            
+            selectors.forEach(sel => {
+              const imgs = document.querySelectorAll(sel);
+              imgs.forEach(img => {
+                const alt = img.alt || img.getAttribute('alt') || '';
+                const src = img.src || img.getAttribute('src') || '';
+                
+                // Get parent container info
+                let container = img.closest('[role="dialog"]') ? 'dialog' : 
+                              img.closest('article') ? 'article' : 
+                              img.closest('header') ? 'header' : 'other';
+                              
+                if (alt.includes('profile picture') || alt.includes('Profile picture')) {
+                  results.push({
+                    alt: alt,
+                    src: src,
+                    container: container
+                  });
+                }
+              });
+            });
+            
+            return results;
           });
+          
+          // Process found profile images
+          for (const data of profileData) {
+            console.error(`[v0] Found profile image: ${data.alt} in ${data.container}`);
+            
+            const patterns = [
+              /(\S+)'s profile picture/i,
+              /^([^']+)'s profile picture/i,
+              /@([a-zA-Z0-9_.]+)'s profile picture/i,
+              /([a-zA-Z0-9_.]+)'s\s+profile\s+picture/i
+            ];
 
-          // Enhanced username regex patterns
-          const patterns = [
-            /@([a-zA-Z0-9_.]+)/g,
-            /instagram\.com\/([a-zA-Z0-9_.]+)/g,
-            /"username":"([^"]+)"/g
-          ];
-
-          for (const pattern of patterns) {
-            const matches = textContent.match(pattern);
-            if (matches && matches.length > 0) {
-              const username = matches[0].replace(/@|instagram\.com\/|"username":"/g, '').replace(/"/g, '');
-              if (username && username.length > 0 && username.length < 30) {
-                console.error(`[v0] Username from content: ${username}`);
-                return username;
+            for (const pattern of patterns) {
+              const match = data.alt.match(pattern);
+              if (match && match[1]) {
+                const username = match[1].replace('@', '').trim();
+                if (username && username.length > 0 && username.length < 30 && 
+                    !username.includes(' ') && /^[a-zA-Z0-9_.]+$/.test(username)) {
+                  console.error(`[v0] ✓ Username from DOM traversal: ${username}`);
+                  return username;
+                }
               }
             }
           }
         } catch (e) {
-          console.error(`[v0] Content extraction error: ${e.message}`);
+          console.error(`[v0] DOM traversal error: ${e.message}`);
         }
         return null;
       },
@@ -465,38 +584,69 @@ async function main() {
     console.error("[v0] Creating and configuring page...");
     page = await browser.newPage();
 
-    // Enhanced page configuration
+    // Randomized viewport configuration
+    const viewports = [
+      { width: 1920, height: 1080 },
+      { width: 1366, height: 768 },
+      { width: 1440, height: 900 },
+      { width: 1536, height: 864 },
+      { width: 1600, height: 900 }
+    ];
+    
+    const randomViewport = viewports[Math.floor(Math.random() * viewports.length)];
     await page.setViewport({
-      width: 1920,
-      height: 1080,
+      ...randomViewport,
       deviceScaleFactor: 1,
       hasTouch: false,
       isLandscape: true,
       isMobile: false
     });
+    console.error(`[v0] Viewport: ${randomViewport.width}x${randomViewport.height}`);
 
-    // Rotate user agents
+    // Expanded user agent rotation with more realistic options
     const userAgents = [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0"
     ];
 
     const randomUA = userAgents[Math.floor(Math.random() * userAgents.length)];
     await page.setUserAgent(randomUA);
     console.error(`[v0] User agent: ${randomUA}`);
 
-    // Enhanced HTTP headers
+    // Enhanced HTTP headers with session simulation
+    const languages = ['en-US,en;q=0.9', 'en-GB,en;q=0.9', 'en-US,en;q=0.9,es;q=0.8'];
+    const randomLang = languages[Math.floor(Math.random() * languages.length)];
+    
     await page.setExtraHTTPHeaders({
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.9',
+      'Accept-Language': randomLang,
       'Accept-Encoding': 'gzip, deflate, br',
       'Connection': 'keep-alive',
       'Upgrade-Insecure-Requests': '1',
       'Sec-Fetch-Dest': 'document',
       'Sec-Fetch-Mode': 'navigate',
       'Sec-Fetch-Site': 'none',
-      'Cache-Control': 'max-age=0'
+      'Cache-Control': 'max-age=0',
+      'DNT': '1',
+      'Sec-CH-UA': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
+      'Sec-CH-UA-Mobile': '?0',
+      'Sec-CH-UA-Platform': '"Windows"'
+    });
+    
+    // Simulate existing session cookies
+    await page.setCookie({
+      name: 'sessionid',
+      value: 'fake_session_' + Math.random().toString(36).substr(2, 16),
+      domain: '.instagram.com'
+    }, {
+      name: 'csrftoken', 
+      value: 'csrf_' + Math.random().toString(36).substr(2, 32),
+      domain: '.instagram.com'
     });
 
     console.error("[v0] Page configuration completed");
@@ -521,28 +671,68 @@ async function main() {
       if (username) {
         successCount++;
         console.error(`[v0] ✓ Success: ${username}`);
+        process.stdout.write(JSON.stringify({ url, username }) + "\n");
       } else {
         failureCount++;
         console.error(`[v0] ✗ Failed: null`);
+        // Fallback: print permalink in a result container
+        process.stdout.write(JSON.stringify({
+          url,
+          username: null,
+          info: `No username found. Permalink: ${url}`,
+          container: {
+            type: 'fallback',
+            content: `Permalink: ${url}`
+          }
+        }) + "\n");
       }
-
-      process.stdout.write(JSON.stringify({ url, username }) + "\n");
-
     } catch (error) {
       failureCount++;
       console.error(`[v0] ✗ Error processing ${url}: ${error.message}`);
-      process.stdout.write(JSON.stringify({ url, username: null }) + "\n");
+      process.stdout.write(JSON.stringify({
+        url,
+        username: null,
+        info: `Error occurred. Permalink: ${url}`,
+        container: {
+          type: 'fallback',
+          content: `Permalink: ${url}`
+        }
+      }) + "\n");
     }
 
-    // Enhanced progressive delays
-    const baseDelay = 4000; // 4 seconds base
-    const randomDelay = Math.random() * 6000; // 0-6 seconds random
-    const progressiveDelay = Math.min(i * 500, 10000); // Progressive up to 10s
-    const totalDelay = baseDelay + randomDelay + progressiveDelay;
+    // Selenium-like delays (shorter but still human-like)
+    let baseDelay = 2000; // Base 2 seconds like Selenium time.sleep(2)
+    if (failureCount > 0) {
+      baseDelay += Math.min(failureCount * 2000, 10000); // Moderate backoff
+    }
+    
+    const randomDelay = Math.random() * 3000 + 1000; // 1-4 seconds random
+    const progressiveDelay = Math.min(i * 200, 5000); // Progressive up to 5s
+    const jitterDelay = (Math.random() - 0.5) * 1000; // ±0.5s jitter
+    const totalDelay = baseDelay + randomDelay + progressiveDelay + jitterDelay;
 
     if (i < permalinks.length - 1) {
-      console.error(`[v0] Waiting ${Math.round(totalDelay)}ms before next request...`);
-      await new Promise(resolve => setTimeout(resolve, totalDelay));
+      console.error(`[v0] Waiting ${Math.round(totalDelay)}ms before next request (failures: ${failureCount})...`);
+      
+      // Simple delay like Selenium but with some activity simulation
+      await new Promise(resolve => setTimeout(resolve, totalDelay * 0.7));
+      
+      // Occasional micro-activity during wait
+      if (Math.random() < 0.4) {
+        try {
+          await page.evaluate(() => {
+            document.dispatchEvent(new Event('mousemove'));
+            // Simulate slight page interaction
+            if (Math.random() < 0.3) {
+              window.scrollBy(0, Math.random() * 50 - 25);
+            }
+          });
+        } catch (e) {
+          // Ignore activity errors
+        }
+      }
+      
+      await new Promise(resolve => setTimeout(resolve, totalDelay * 0.3));
     }
   }
 

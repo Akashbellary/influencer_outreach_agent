@@ -41,6 +41,10 @@ _db = _db
 
 db = _db
 
+def get_db_connection():
+    """Get database connection (returns MongoClient instance)"""
+    return _mongo_client
+
 # ---- Backward-compat shims (for legacy imports) ----
 # Some modules import `users_collection` and simple profile helpers directly from `database`.
 if db is not None:

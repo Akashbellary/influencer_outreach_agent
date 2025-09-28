@@ -37,7 +37,6 @@ def get_influencers():
         return jsonify({"success": False, "message": "User not authenticated"}), 401
     user_id = str(user.get('_id'))
     influencers = list(influencers_collection.find({"user_id": user_id}))
-    influencers = list(influencers_collection.find())
     for influencer in influencers:
         influencer['_id'] = str(influencer['_id'])
     return jsonify(influencers), 200
