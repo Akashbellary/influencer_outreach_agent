@@ -1,5 +1,7 @@
 ## CampaignIO – Influencer Discovery & Outreach (Full‑Stack)
 
+<img src="CampaignIO.gif">
+
 CampaignIO is a full‑stack app that helps you discover relevant Instagram creators from a product idea or hashtag and manage outreach in one place. It streams recommendations in real‑time (so you don't wait for long scrapes), preserves your search history, and gives you a workspace with Timeline, Notes, Events, Tasks, Deals, Campaigns, Messages, History, and Todo.
 
 I built this to feel fast and forgiving: searches start immediately, results show up incrementally, and you can click around without breaking a long‑running discovery job in the background.
