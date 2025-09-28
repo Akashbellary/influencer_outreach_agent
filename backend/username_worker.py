@@ -139,6 +139,14 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
             print(f"[v0] No permalinks found, completing job")
             return
 
+        # Check if web scraping is enabled for this job
+        web_scraping_enabled = job.get("web_scraping_enabled", True)
+        
+        if not web_scraping_enabled:
+            print(f"[v0] Web scraping is disabled. Skipping username extraction and completing with permalinks only.")
+            job["status"] = "completed"
+            return
+        
         print(f"[v0] Spawning Node.js username extractor for {len(permalinks)} permalinks")
         
         # Retry logic for Node.js extractor
@@ -275,12 +283,26 @@ def _worker_thread(job_id: str, hashtag: str, product_name: Optional[str], produ
 
 @discovery_bp.route("/start-discovery", methods=["POST"])
 def start_discovery():
+    from flask import session
+    from database import get_db_connection
+    
     print(f"[v0] start_discovery called with data: {request.get_json(silent=True)}")
     data = request.get_json(silent=True) or {}
     hashtag = (data.get("hashtag") or "").strip()
     product_name = (data.get("productName") or "").strip() or None
     product_description = (data.get("productDescription") or "").strip() or None
-    print(f"[v0] Parsed hashtag: {hashtag}, product_name: {product_name}")
+    web_scraping_enabled = data.get("web_scraping_enabled", True)  # Default to True for backward compatibility
+    
+    # Use global web scraping setting from settings.py
+    try:
+        from blueprints.settings import GLOBAL_WEB_SCRAPING_ENABLED
+        web_scraping_enabled = GLOBAL_WEB_SCRAPING_ENABLED
+        print(f"[v0] Using global web scraping setting: {web_scraping_enabled}")
+    except Exception as e:
+        print(f"[v0] Error importing global web scraping setting, using default False: {e}")
+        web_scraping_enabled = False
+    
+    print(f"[v0] Parsed hashtag: {hashtag}, product_name: {product_name}, web_scraping_enabled: {web_scraping_enabled}")
     if not hashtag:
         print(f"[v0] Error: hashtag is required")
         return jsonify({"success": False, "message": "hashtag is required"}), 400
@@ -293,6 +315,7 @@ def start_discovery():
         "usernames": [],
         "user_data": [],
         "message": "",
+        "web_scraping_enabled": web_scraping_enabled,
         "created_at": time.time(),
     }
 

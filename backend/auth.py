@@ -145,27 +145,34 @@ def google_login_callback():
     """Handle Google OAuth callback"""
     try:
         print(f"[v0] Google OAuth callback received: {request.url}")
+        print(f"[v0] Environment: NODE_ENV={os.environ.get('NODE_ENV')}, FRONTEND_URL={os.environ.get('FRONTEND_URL')}")
+        print(f"[v0] Flow redirect_uri: {flow.redirect_uri}")
         # Fetch token using authorization code
         flow.fetch_token(authorization_response=request.url)
-        
+        print(f"[v0] Token fetched. Credentials: {flow.credentials}")
+
         # Verify ID token
         id_info = id_token.verify_oauth2_token(
             flow.credentials._id_token,
             requests.Request(),
             GOOGLE_CLIENT_CONFIG["web"]["client_id"]
         )
-        
+        print(f"[v0] ID token info: {id_info}")
+
         # Check if email is verified
         if not id_info.get("email_verified"):
+            print("[v0] Email not verified.")
             return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=false&error=Email+not+verified")
-        
+
         email = id_info.get("email")
         name = id_info.get("name", "")
         google_id = id_info.get("sub")
-        
+        print(f"[v0] Google user: email={email}, name={name}, google_id={google_id}")
+
         # Check if user exists
         user = users_collection.find_one({"email": email})
-        
+        print(f"[v0] Existing user: {user}")
+
         if not user:
             # Create new user
             user = {
@@ -179,19 +186,21 @@ def google_login_callback():
             }
             result = users_collection.insert_one(user)
             user["_id"] = result.inserted_id
-            
+            print(f"[v0] New user created: {user}")
         else:
             # Update existing user
             users_collection.update_one(
                 {"_id": user["_id"]},
                 {"$set": {"last_login": datetime.utcnow(), "google_id": google_id}}
             )
-        
+            print(f"[v0] Existing user updated: {user}")
+
         # Store user info in session
         session["user_id"] = str(user["_id"])
         session["email"] = user["email"]
         session["name"] = user.get("name", "")
-        
+        print(f"[v0] Session set: user_id={session['user_id']}, email={session['email']}, name={session['name']}")
+
         # Encode user data for URL
         user_data = {
             "id": str(user["_id"]),
@@ -200,14 +209,26 @@ def google_login_callback():
             "auth_method": user["auth_method"],
         }
         user_data_encoded = urllib.parse.quote(json.dumps(user_data))
-        
-        print(f"[v0] OAuth success - redirecting to frontend with user data: {user_data}")
-        # Temporarily redirect to root page since google-callback page has build issues
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=true&user_data={user_data_encoded}")
+        print(f"[v0] Encoded user data: {user_data_encoded}")
+
+        # Dynamically determine frontend callback URL
+        frontend_url = os.environ.get("FRONTEND_URL")
+        if not frontend_url:
+            frontend_url = "https://campaignio.onrender.com" if os.environ.get("NODE_ENV") == "production" else "http://localhost:3000"
+        callback_url = f"{frontend_url}/google-callback?success=true&user_data={user_data_encoded}"
+        print(f"[v0] Redirecting to: {callback_url}")
+        return redirect(callback_url)
     except Exception as e:
         print(f"[v0] OAuth error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         # Redirect to root page with error
-        return redirect(f"{'https://campaignio.onrender.com' if os.environ.get('NODE_ENV') == 'production' else 'http://localhost:3000'}/?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}")
+    frontend_url = os.environ.get("FRONTEND_URL")
+    if not frontend_url:
+        frontend_url = "https://campaignio.onrender.com" if os.environ.get("NODE_ENV") == "production" else "http://localhost:3000"
+    callback_url = f"{frontend_url}/google-callback?success=false&error=Google+authentication+failed:+{urllib.parse.quote(str(e))}"
+    print(f"[v0] Redirecting to (error): {callback_url}")
+    return redirect(callback_url)
 
 def get_google_login_url():
     """Get Google OAuth login URL"""

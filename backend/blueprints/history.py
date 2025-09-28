@@ -11,18 +11,25 @@ history_bp = Blueprint("history", __name__)
 def _col():
 	return db.get_collection("search_history") if db is not None else None
 
+from auth import require_auth
+
 @history_bp.route("/history", methods=["POST"])
+@require_auth
 def create_history():
 	col = _col()
 	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
+	from flask import session
 	data = request.get_json(silent=True) or {}
+	user_id = session.get("user_id")
+	if not user_id:
+		return jsonify({"success": False, "message": "User not authenticated"}), 401
 	entry = {
 		"productName": (data.get("productName") or "").strip(),
 		"productDescription": (data.get("productDescription") or "").strip(),
 		"hashtags": data.get("hashtags") or [],
 		"image": data.get("image") or "",
-		"userId": data.get("userId") or None,
+		"userId": user_id,
 		"influencers": data.get("influencers") or [],
 		"createdAt": datetime.utcnow(),
 		"updatedAt": datetime.utcnow(),
@@ -31,14 +38,16 @@ def create_history():
 	return jsonify({"success": True, "id": str(res.inserted_id)})
 
 @history_bp.route("/history", methods=["GET"])
+@require_auth
 def list_history():
 	col = _col()
 	if col is None:
 		return jsonify({"success": False, "message": "DB unavailable"}), 500
-	user_id = request.args.get("userId")
-	q: Dict[str, Any] = {}
-	if user_id:
-		q["userId"] = user_id
+	from flask import session
+	user_id = session.get("user_id")
+	if not user_id:
+		return jsonify({"success": False, "message": "User not authenticated"}), 401
+	q: Dict[str, Any] = {"userId": user_id}
 	cursor = col.find(q).sort("updatedAt", -1).limit(100)
 	items = []
 	for doc in cursor:

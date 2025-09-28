@@ -46,7 +46,7 @@ function generateTags(biography: string, name: string, productName?: string, pro
 
 export async function POST(request: NextRequest) {
   try {
-    const { hashtags, productName, productDescription } = await request.json()
+    const { hashtags, productName, productDescription, web_scraping_enabled } = await request.json()
 
     const searchQuery =
       hashtags.length > 0 ? hashtags[0].replace("#", "") : productName?.toLowerCase().replace(/\s+/g, "") || "product"
@@ -57,8 +57,9 @@ export async function POST(request: NextRequest) {
     
     const startRes = await fetch(backendUrl, {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ hashtag: searchQuery, productName, productDescription }),
+      body: JSON.stringify({ hashtag: searchQuery, productName, productDescription, web_scraping_enabled }),
     })
     
     console.log(`[v0] Backend response status: ${startRes.status}`)

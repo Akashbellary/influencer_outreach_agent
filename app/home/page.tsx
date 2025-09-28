@@ -107,6 +107,7 @@ export default function HomePage() {
   const [influencersData, setInfluencersData] = useState<InfluencerData[]>([]);
   const [fallbackPermalinks, setFallbackPermalinks] = useState<string[]>([]); // New state for fallback permalinks
   const [isGeneratingHashtags, setIsGeneratingHashtags] = useState(false);
+  const [webScrapingEnabled, setWebScrapingEnabled] = useState(false); // Default to DISABLED for Meta compliance
   const router = useRouter();
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [currentUser, setCurrentUser] = useState<any>(null);
@@ -137,10 +138,38 @@ export default function HomePage() {
         const userData = JSON.parse(userDataRaw);
         setCurrentUser(userData);
       }
+
+      // Load web scraping setting
+      loadWebScrapingSetting();
     } catch {
       router.replace("/");
     }
   }, [mounted, router]);
+
+  const loadWebScrapingSetting = () => {
+    try {
+      const saved = localStorage.getItem('campaignio:web-scraping-enabled');
+      if (saved !== null) {
+        setWebScrapingEnabled(saved === 'true');
+      }
+    } catch (error) {
+      console.error("Error loading web scraping setting:", error);
+    }
+  };
+
+  const toggleWebScraping = () => {
+    const newValue = !webScrapingEnabled;
+    setWebScrapingEnabled(newValue);
+    
+    // Save to localStorage for persistence
+    try {
+      localStorage.setItem('campaignio:web-scraping-enabled', newValue.toString());
+    } catch (e) {
+      console.error('Failed to save web scraping setting:', e);
+    }
+    
+    console.log(`Web scraping ${newValue ? 'enabled' : 'disabled'}`);
+  };
 
   useEffect(() => {
     if (!mounted) return;
@@ -298,6 +327,7 @@ export default function HomePage() {
           hashtags: hashtags,
           productName: productName.trim(),
           productDescription: productDescription.trim(),
+          web_scraping_enabled: webScrapingEnabled,
         }),
       });
 
@@ -366,6 +396,20 @@ export default function HomePage() {
           setFallbackPermalinks(data.fallbackPermalinks);
           setShowInfluencers(true);
 
+          // When web scraping is disabled, save permalinks to history
+          if (!webScrapingEnabled) {
+            try {
+              const hid = localStorage.getItem(CURRENT_HISTORY_ID_LS_KEY);
+              const rawHist = localStorage.getItem(HISTORY_LS_KEY);
+              const hist = rawHist ? (JSON.parse(rawHist) as any[]) : [];
+              const idx = hist.findIndex((h: any) => h.id === hid);
+              if (idx >= 0) {
+                hist[idx].permalinks = data.fallbackPermalinks;
+                localStorage.setItem(HISTORY_LS_KEY, JSON.stringify(hist));
+              }
+            } catch {}
+          }
+
           console.log(
             `[v0] Showing ${data.fallbackPermalinks.length} fallback permalinks`
           );
@@ -401,6 +445,34 @@ export default function HomePage() {
         const userData = Array.isArray(status.user_data)
           ? status.user_data
           : [];
+        const permalinks = Array.isArray(status.permalinks)
+          ? status.permalinks
+          : [];
+        
+        // Handle permalinks updates (when web scraping is disabled)
+        if (!webScrapingEnabled && permalinks.length > 0) {
+          setFallbackPermalinks((prev) => {
+            const existing = new Set(prev);
+            const newPermalinks = permalinks.filter((p: string) => !existing.has(p));
+            if (newPermalinks.length === 0) return prev;
+            const updated = [...prev, ...newPermalinks];
+            
+            // Save to history
+            try {
+              const hid = localStorage.getItem(CURRENT_HISTORY_ID_LS_KEY);
+              const rawHist = localStorage.getItem(HISTORY_LS_KEY);
+              const hist = rawHist ? (JSON.parse(rawHist) as any[]) : [];
+              const idx = hist.findIndex((h: any) => h.id === hid);
+              if (idx >= 0) {
+                hist[idx].permalinks = updated;
+                localStorage.setItem(HISTORY_LS_KEY, JSON.stringify(hist));
+              }
+            } catch {}
+            
+            return updated;
+          });
+        }
+        
         if (userData.length > 0) {
           const mapped = userData.map((user: any) => ({
             id: user.id,
@@ -902,15 +974,34 @@ export default function HomePage() {
                   </div>
 
                   {showFindInfluencers && (
-                    <Button
-                      onClick={findInfluencers}
-                      className="w-full"
-                      disabled={isLoading}
-                    >
-                      {isLoading
-                        ? "Finding Influencers..."
-                        : "Find Influencers"}
-                    </Button>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-4 border rounded-lg bg-card">
+                        <div>
+                          <Label className="text-sm font-medium">Web Scraping</Label>
+                          <p className="text-xs text-muted-foreground">
+                            {webScrapingEnabled 
+                              ? "Extract usernames from Instagram posts" 
+                              : "Show permalinks only (Meta API compliant)"}
+                          </p>
+                        </div>
+                        <Button
+                          variant={webScrapingEnabled ? "default" : "outline"}
+                          size="sm"
+                          onClick={toggleWebScraping}
+                        >
+                          {webScrapingEnabled ? "Enabled" : "Disabled"}
+                        </Button>
+                      </div>
+                      <Button
+                        onClick={findInfluencers}
+                        className="w-full"
+                        disabled={isLoading}
+                      >
+                        {isLoading
+                          ? "Finding Influencers..."
+                          : "Find Influencers"}
+                      </Button>
+                    </div>
                   )}
                 </div>
               </div>
@@ -939,12 +1030,16 @@ export default function HomePage() {
                     Recommended Influencers
                   </CardTitle>
                   <p className="text-sm text-muted-foreground">
-                    {influencersData.length > 0
-                      ? `Found ${influencersData.length} real influencers from Instagram`
+                    {webScrapingEnabled
+                      ? influencersData.length > 0
+                        ? `Found ${influencersData.length} real influencers from Instagram`
+                        : discoveryJobId
+                        ? "Searching recommendations…"
+                        : ""
                       : fallbackPermalinks.length > 0
-                      ? `Showing ${fallbackPermalinks.length} Instagram posts due to temporary API limitations`
+                      ? `Showing ${fallbackPermalinks.length} Instagram posts (Web scraping disabled - Meta API compliant mode)`
                       : discoveryJobId
-                      ? "Searching recommendations…"
+                      ? "Finding Instagram posts…"
                       : ""}
                   </p>
                 </CardHeader>
@@ -1041,10 +1136,9 @@ export default function HomePage() {
                     // Display fallback permalinks
                     <div className="space-y-4">
                       <p className="text-sm text-muted-foreground mb-4">
-                        Due to temporary Instagram API limitations, we're
-                        showing direct links to popular posts. Click on any link
-                        below to view the post and potentially connect with the
-                        creator.
+                        {webScrapingEnabled
+                          ? "Due to temporary Instagram API limitations, we're showing direct links to popular posts. Click on any link below to view the post and potentially connect with the creator."
+                          : "Web scraping is disabled (Meta API compliant mode). Showing direct links to Instagram posts. Click any link to view the post and connect with the creator."}
                       </p>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {fallbackPermalinks.map((permalink, index) => (

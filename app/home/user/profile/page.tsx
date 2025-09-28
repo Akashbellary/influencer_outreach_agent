@@ -1075,28 +1075,76 @@ export default function ProfilePage() {
                 Back to History
               </Button>
               <h2 className="text-2xl font-bold mb-4">
-                Recommended Influencers
+                {selectedHistoryItem.influencers && selectedHistoryItem.influencers.length > 0 
+                  ? "Recommended Influencers" 
+                  : "Instagram Posts"}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {selectedHistoryItem.influencers.map((influencer: any) => (
-                  <Card key={influencer.id} className="p-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-10 w-10">
-                        <AvatarImage src={influencer.profile_picture_url} />
-                        <AvatarFallback>
-                          {influencer.username[0]?.toUpperCase()}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <p className="font-semibold">@{influencer.username}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {influencer.followers_count} followers
-                        </p>
+              {selectedHistoryItem.influencers && selectedHistoryItem.influencers.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {selectedHistoryItem.influencers.map((influencer: any) => (
+                    <Card key={influencer.id} className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Avatar className="h-10 w-10">
+                          <AvatarImage src={influencer.profile_picture_url} />
+                          <AvatarFallback>
+                            {influencer.username[0]?.toUpperCase()}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="font-semibold">@{influencer.username}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {influencer.followers_count} followers
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+                    </Card>
+                  ))}
+                </div>
+              ) : selectedHistoryItem.permalinks && selectedHistoryItem.permalinks.length > 0 ? (
+                <div className="space-y-4">
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Instagram posts from your search (Web scraping was disabled - Meta API compliant mode). Click any link to view the post.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {selectedHistoryItem.permalinks.map((permalink: string, index: number) => (
+                      <a
+                        key={index}
+                        href={permalink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block p-3 border rounded-lg hover:bg-accent transition-colors group"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium truncate group-hover:underline">
+                            Post {index + 1}
+                          </span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 text-muted-foreground"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </div>
+                        <p className="text-xs text-muted-foreground truncate mt-1">
+                          {permalink}
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground">No data available for this search.</p>
+                </div>
+              )}
             </div>
           );
         }

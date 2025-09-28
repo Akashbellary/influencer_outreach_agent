@@ -23,6 +23,7 @@ from blueprints.messages import messages_bp
 from blueprints.timeline import timeline_bp
 from blueprints.user_profile import user_profile_bp
 from blueprints.todos import todos_bp
+from blueprints.settings import settings_bp
 
 # ---------------- Load Config ----------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -63,6 +64,7 @@ app.register_blueprint(messages_bp, url_prefix='/api')
 app.register_blueprint(timeline_bp, url_prefix='/api')
 app.register_blueprint(user_profile_bp, url_prefix='/api')
 app.register_blueprint(todos_bp, url_prefix='/api')
+app.register_blueprint(settings_bp, url_prefix='/api')
 
 IG_USER_ID = config["ig_user_id"]
 ACCESS_TOKEN = config["long_access_token"]
